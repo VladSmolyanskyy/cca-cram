@@ -255,7 +255,97 @@ footer a{color:var(--muted)}
   .exam-meta{gap:14px}
   #topbar .bar-in{gap:9px;flex-wrap:wrap}
 }
+
+/* ============================================================= INTERACTIVE LABS */
+.lab{margin:18px 0;padding:18px;border:1px solid rgba(139,124,246,.45);border-radius:14px;background:radial-gradient(circle at 100% 0,rgba(139,124,246,.1),transparent 60%),var(--panel)}
+.lab-head{font-family:var(--head);font-weight:700;font-size:14px;color:#fff;display:flex;align-items:center;gap:9px;margin-bottom:6px}
+.lab-ico{font-size:17px}
+.lab-cap{font-size:13.5px;color:var(--muted);margin:8px 0}
+.lab-cap code{white-space:nowrap}
+.lab-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.lab-btn{font-family:var(--head);font-weight:600;font-size:13px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;padding:9px 16px;border-radius:10px;cursor:pointer;transition:.18s;box-shadow:0 4px 12px rgba(217,119,87,.3)}
+.lab-btn:hover{transform:translateY(-1px)}
+.lab-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.lab-btn.ghost{background:rgba(255,255,255,.06);color:var(--muted);box-shadow:none;border:1px solid var(--line)}
+.lab-meta{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.loop-flow{margin:6px 0}
+.loop-flow .node.lp{transition:.25s;opacity:.45}
+.loop-flow .node.lp.active{opacity:1;border-color:var(--accent);box-shadow:0 0 18px rgba(217,119,87,.5);transform:scale(1.07)}
+.choice-row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+.choice{font-family:var(--head);font-weight:600;font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--line);padding:8px 13px;border-radius:10px;cursor:pointer;transition:.18s}
+.choice:hover{border-color:var(--violet);color:#fff}
+.choice.sel{background:linear-gradient(135deg,var(--accent),var(--violet));color:#fff;border-color:transparent}
+.lab-result{margin-top:12px;padding:13px 15px;border-radius:11px;font-size:14px;display:none}
+.lab-result.show{display:block;animation:fade .3s}
+.lab-result code{white-space:nowrap}
+.lab-result b{color:#fff}
+.lab-result.good{background:rgba(67,201,138,.13);border:1px solid rgba(67,201,138,.4)}
+.lab-result.warnv{background:rgba(240,178,50,.13);border:1px solid rgba(240,178,50,.4)}
+.lab-result.bad{background:rgba(240,96,107,.13);border:1px solid rgba(240,96,107,.4)}
+.lab-result.info{background:rgba(91,155,246,.13);border:1px solid rgba(91,155,246,.4)}
+.sr-log{margin-top:12px;font-family:var(--mono);font-size:12px;display:flex;flex-direction:column;gap:6px}
+.sr-line{padding:8px 11px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+.sr-line.in{animation:fade .3s}
+.sr-line.tu{border-color:rgba(139,124,246,.45)}
+.sr-line.et{border-color:rgba(67,201,138,.45)}
+.sr-line .who{color:var(--accent2);font-weight:600}
+.perm-toggles{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+.ptog{display:flex;align-items:center;gap:9px;font-size:14px;cursor:pointer;user-select:none}
+.ptog input{width:17px;height:17px;accent-color:var(--accent);cursor:pointer}
+
+/* ============================================================= LIGHT THEME */
+html.light{
+  --bg:#f7f6f3;--bg2:#efede8;--panel:#ffffff;--panel2:#faf9f6;
+  --ink:#1d1b26;--muted:#5a5870;--faint:#8b8a9c;
+  --line:rgba(20,18,40,.13);--line2:rgba(20,18,40,.07);
+  --violet:#6d5cf0;--green:#1f9d6b;--cyan:#0f988a;--blue:#3f7fe0;
+}
+html.light body{color:var(--ink)}
+html.light body::before{background:
+  radial-gradient(60vw 50vh at 12% -5%,rgba(217,119,87,.14),transparent 60%),
+  radial-gradient(50vw 45vh at 95% 8%,rgba(139,124,246,.12),transparent 60%),
+  radial-gradient(55vw 50vh at 50% 110%,rgba(61,214,196,.10),transparent 60%),
+  linear-gradient(180deg,var(--bg),var(--bg2));}
+html.light a{color:#b94f31;border-color:rgba(185,79,49,.35)}
+html.light a:hover{color:#000;border-color:#000}
+html.light #topbar{background:rgba(247,246,243,.84);border-bottom-color:var(--line)}
+html.light #navpills{background:rgba(247,246,243,.7)}
+html.light #navpills a{background:rgba(20,18,40,.04);color:var(--muted)}
+html.light #navpills a.active,html.light #navpills a:hover{color:#1d1b26}
+html.light .mode-tabs{background:rgba(20,18,40,.05)}
+html.light .mode-tabs button{color:var(--muted)}
+html.light .progress-track{background:rgba(20,18,40,.07)}
+html.light .btn-ghost{background:rgba(20,18,40,.04);color:var(--muted)}
+html.light .btn-ghost:hover{color:#1d1b26}
+html.light .htag{background:rgba(20,18,40,.04)}
+html.light #hero h1{background:linear-gradient(120deg,#2a2735 8%,var(--accent) 50%,#6d5cf0 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
+html.light .banner h3{background:linear-gradient(120deg,#2a2735,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+html.light .concept{box-shadow:0 6px 22px rgba(20,18,40,.07)}
+html.light .concept .lead{color:#36333f}
+html.light .concept h4{color:#1d1b26}
+html.light .concept strong{color:#000}
+html.light .got .box{background:rgba(20,18,40,.03)}
+html.light .tag{color:#b94f31}
+html.light .callout b,html.light .quiz-title,html.light .q-text,html.light details.reveal summary,html.light .lab-head{color:#1d1b26}
+html.light .callout.exam b{color:#9a4e34}
+html.light .tbl th{background:rgba(20,18,40,.05);color:#9a4e34}
+html.light .tbl tr:hover td{background:rgba(20,18,40,.025)}
+html.light details.reveal{background:rgba(20,18,40,.025)}
+html.light details.reveal .rv-body{color:#4d4b5e}
+html.light .opt{background:rgba(20,18,40,.025)}
+html.light .opt .mk{color:var(--muted)}
+html.light .quiz{background:var(--panel)}
+html.light .quiz-score .pts{color:#1d1b26}
+html.light .kbd{background:rgba(20,18,40,.06);color:#1d1b26}
+html.light .diagram{background:radial-gradient(circle at 50% 0,rgba(139,124,246,.06),transparent 70%),#fbfbfd}
+html.light .lab{background:radial-gradient(circle at 100% 0,rgba(139,124,246,.08),transparent 60%),#fff}
+html.light .choice{background:rgba(20,18,40,.04);color:var(--muted)}
+html.light .lab-btn.ghost{background:rgba(20,18,40,.05);color:var(--muted)}
+html.light .sr-line{background:rgba(20,18,40,.025)}
+html.light .lab-result b{color:#000}
+html.light .fc-front .q{color:#1d1b26}
 </style>
+<script>try{if(localStorage.getItem('cca-theme')==='light')document.documentElement.classList.add('light');}catch(e){}</script>
 </head>
 <body class="mode-learn">
 
@@ -273,6 +363,7 @@ footer a{color:var(--muted)}
     <button data-mode="learn" class="active">Learn</button>
     <button data-mode="flash">Flashcards</button>
   </div>
+  <button class="btn-ghost" id="themeBtn" title="Toggle light / dark theme" aria-label="Toggle theme">🌙</button>
   <button class="btn-ghost" id="resetBtn">Reset</button>
 </div></div>
 
@@ -379,6 +470,16 @@ footer a{color:var(--muted)}
       </svg>
       <div class="cap">Self-reflect after each step to decide the next action. Loop until the goal is achieved.</div>
     </div>
+    <div class="lab" id="loopLab">
+      <div class="lab-head"><span class="lab-ico">🔄</span>Interactive — walk the loop</div>
+      <div class="flow loop-flow">
+        <span class="node lp" data-phase="0">Gather Context</span><span class="arrow">→</span>
+        <span class="node lp" data-phase="1">Take Action</span><span class="arrow">→</span>
+        <span class="node lp" data-phase="2">Verify Results</span><span class="arrow">↺</span>
+      </div>
+      <div class="lab-cap" id="loopCap">Press <b>Step</b> to advance the cycle one phase at a time.</div>
+      <div class="lab-controls"><button class="lab-btn" id="loopStep">Step ▶</button><button class="lab-btn ghost" id="loopReset">Reset</button><span class="lab-meta" id="loopMeta">cycle 1 · idle</span></div>
+    </div>
     <h4>Properties to memorise</h4>
     <ul>
       <li>Uses <b>tool calls</b> (functions / APIs) to interact with code, systems, and external services.</li>
@@ -406,6 +507,18 @@ footer a{color:var(--muted)}
       <tr><td><code>opusplan</code></td><td>Opus for planning, Sonnet for execution</td><td>Plan deeply, then execute cheaply</td></tr>
     </table>
     <div class="callout key"><span class="ico">⚖️</span><div class="ct"><b>Selection framework:</b> Intelligence priority → <b>Opus</b>. Speed priority → <b>Haiku</b>. Balanced → <b>Sonnet</b>. A common pattern is <b>mixing models</b> in one app per task. Core idea: pick model on <b>task complexity vs. cost/speed</b>.</div></div>
+    <div class="lab" id="modelLab">
+      <div class="lab-head"><span class="lab-ico">⚖️</span>Interactive — pick the model</div>
+      <div class="lab-cap">What matters most for this task? Tap one:</div>
+      <div class="choice-row">
+        <button class="choice" data-rec="opus">Deepest reasoning</button>
+        <button class="choice" data-rec="haiku">Fastest &amp; cheapest</button>
+        <button class="choice" data-rec="sonnet">A balance of both</button>
+        <button class="choice" data-rec="opusplan">Plan deeply, run cheaply</button>
+        <button class="choice" data-rec="sonnet1m">A very long session</button>
+      </div>
+      <div class="lab-result info" id="modelResult"></div>
+    </div>
     <details class="reveal"><summary>Self-test: which alias plans with Opus but executes with Sonnet?</summary><div class="rv-body"><code>opusplan</code> — it uses Opus for the planning phase and Sonnet for execution, getting deep reasoning where it matters without paying Opus rates for every edit.</div></details>
   </article>
 
@@ -443,6 +556,12 @@ footer a{color:var(--muted)}
       <span class="node">Run function</span><span class="arrow">→</span>
       <span class="node grn">append<br>tool_result</span><span class="arrow">↺</span>
     </div><div class="cap">Loop while <code>tool_use</code>; break and return when <code>end_turn</code>.</div></div>
+    <div class="lab" id="srLab">
+      <div class="lab-head"><span class="lab-ico">🧪</span>Interactive — run the loop turn by turn</div>
+      <div class="lab-cap">"What day is 103 days from today, and set a reminder?" Click <b>Call Claude</b> and watch how <code>stop_reason</code> drives each turn.</div>
+      <div class="lab-controls"><button class="lab-btn" id="srCall">Call Claude ▶</button><button class="lab-btn ghost" id="srReset">Reset</button></div>
+      <div class="sr-log" id="srLog"></div>
+    </div>
     <div class="tabs" data-tabs>
       <div class="tab-bar"><button class="tab-btn active" data-tab="0">The loop</button><button class="tab-btn" data-tab="1">Sending a tool_result</button><button class="tab-btn" data-tab="2">Raw response shape</button></div>
       <div class="tab-panel active" data-panel="0"><div class="code-box"><div class="code-head"><span class="fn">loop.py</span><button class="copy-btn">Copy</button></div><pre><code>while response.stop_reason == "tool_use":
@@ -1273,6 +1392,17 @@ async for message in query(prompt=user_request, options=options):
     </div>
     <p>Permission rules apply to the agent's tools: <b>Bash</b>, <b>Read/Write</b>, <b>WebFetch</b>, <b>MCP</b>, and <b>Agents</b>.</p>
     <div class="callout crit"><span class="ico">🚫</span><div class="ct"><b>The number-one exam fact:</b> the order is <b><code>deny</code> → <code>ask</code> → <code>allow</code></b>, and <b>most restrictive wins</b>. If a command is both allowed and denied, <code>deny</code> takes precedence — it is always blocked.</div></div>
+    <div class="lab" id="permLab">
+      <div class="lab-head"><span class="lab-ico">🔐</span>Interactive — who wins?</div>
+      <div class="lab-cap">Pick which rule levels match the action <code>Bash(rm -rf build)</code>, then resolve. The engine applies <b>deny → ask → allow</b>:</div>
+      <div class="perm-toggles">
+        <label class="ptog"><input type="checkbox" id="pDeny"> matches a <code>deny</code> rule</label>
+        <label class="ptog"><input type="checkbox" id="pAsk"> matches an <code>ask</code> rule</label>
+        <label class="ptog"><input type="checkbox" id="pAllow"> matches an <code>allow</code> rule</label>
+      </div>
+      <div class="lab-controls"><button class="lab-btn" id="permResolve">Resolve →</button></div>
+      <div class="lab-result" id="permResult"></div>
+    </div>
     <details class="reveal"><summary>A command matches an <code>allow</code> rule AND a <code>deny</code> rule. What happens?</summary><div class="rv-body">It is <b>blocked</b>. <code>deny</code> is evaluated first and the most restrictive level wins, so the <code>allow</code> never gets a look in.</div></details>
   </article>
 
@@ -3229,6 +3359,83 @@ const FLASHCARDS = [
     if(e.key==='ArrowLeft')document.getElementById('fcPrev').click();
     if(e.key===' '){e.preventDefault();fcInner.classList.toggle('flipped');}
   });
+})();
+
+/* ===================== THEME TOGGLE + INTERACTIVE LABS ===================== */
+(function(){
+  /* theme */
+  const btn=document.getElementById('themeBtn');
+  function icon(){btn.textContent=document.documentElement.classList.contains('light')?'🌞':'🌙';}
+  if(btn){btn.addEventListener('click',()=>{const l=document.documentElement.classList.toggle('light');try{localStorage.setItem('cca-theme',l?'light':'dark');}catch(e){}icon();});icon();}
+
+  /* C3 — loop stepper */
+  (function(){
+    const lab=document.getElementById('loopLab');if(!lab)return;
+    const nodes=[...lab.querySelectorAll('.node.lp')],cap=document.getElementById('loopCap'),meta=document.getElementById('loopMeta');
+    const phases=[
+      "① <b>Gather Context</b> — the agent reads files, tool results and history to understand the current state.",
+      "② <b>Take Action</b> — it issues a tool call (<code>stop_reason: \"tool_use\"</code>); your program runs it and returns the result.",
+      "③ <b>Verify Results</b> — it inspects what changed and decides: goal met → <code>end_turn</code>, else loop again. <b>Not done? → back to Gather Context.</b>"
+    ];
+    let i=-1,cycle=1;
+    document.getElementById('loopStep').onclick=()=>{
+      i++;if(i>=phases.length){i=0;cycle++;}
+      nodes.forEach((n,k)=>n.classList.toggle('active',k===i));
+      cap.innerHTML=phases[i];meta.textContent='cycle '+cycle+' · phase '+(i+1)+'/3';
+    };
+    document.getElementById('loopReset').onclick=()=>{i=-1;cycle=1;nodes.forEach(n=>n.classList.remove('active'));cap.innerHTML='Press <b>Step</b> to advance the cycle one phase at a time.';meta.textContent='cycle 1 · idle';};
+  })();
+
+  /* C4 — model recommender */
+  (function(){
+    const lab=document.getElementById('modelLab');if(!lab)return;
+    const out=document.getElementById('modelResult');
+    const rec={
+      opus:'<b>Opus</b> — strongest reasoning; worth the slower, pricier calls for complex, multi-step planning.',
+      haiku:'<b>Haiku</b> — fastest &amp; cheapest; ideal for simple, high-volume tasks needing little reasoning.',
+      sonnet:'<b>Sonnet</b> — the balanced default; strong coding at sensible speed/cost. Best for most coding tasks.',
+      opusplan:'<b>opusplan</b> — Opus does the <i>planning</i>, Sonnet the <i>execution</i>: deep reasoning where it counts, cheap edits everywhere else.',
+      sonnet1m:'<b>sonnet[1m]</b> — Sonnet with a 1M-token context window for long sessions and large context.'
+    };
+    lab.querySelectorAll('.choice').forEach(c=>c.onclick=()=>{
+      lab.querySelectorAll('.choice').forEach(x=>x.classList.toggle('sel',x===c));
+      out.innerHTML='Recommended → '+rec[c.dataset.rec];out.classList.add('show');
+    });
+  })();
+
+  /* C6 — stop-reason simulator */
+  (function(){
+    const lab=document.getElementById('srLab');if(!lab)return;
+    const log=document.getElementById('srLog'),call=document.getElementById('srCall'),reset=document.getElementById('srReset');
+    const script=[
+      {cls:'tu',html:'<span class="who">Claude →</span> <code>stop_reason: "tool_use"</code> · wants <code>get_current_datetime()</code><br><span class="who">Your code →</span> runs it, appends a <code>tool_result</code> (user role), calls Claude again.'},
+      {cls:'tu',html:'<span class="who">Claude →</span> <code>stop_reason: "tool_use"</code> · wants <code>add_duration(+103 days)</code><br><span class="who">Your code →</span> runs it, appends the <code>tool_result</code>, calls again.'},
+      {cls:'tu',html:'<span class="who">Claude →</span> <code>stop_reason: "tool_use"</code> · wants <code>set_reminder(...)</code><br><span class="who">Your code →</span> runs it, appends the <code>tool_result</code>, calls again.'},
+      {cls:'et',html:'<span class="who">Claude →</span> <code>stop_reason: "end_turn"</code><br><span class="who">Your code →</span> loop breaks ✓ — return the final answer to the user.'}
+    ];
+    let t=0;
+    call.onclick=()=>{
+      const s=script[t];const div=document.createElement('div');div.className='sr-line in '+s.cls;
+      div.innerHTML='<b>Turn '+(t+1)+'</b> · '+s.html;log.appendChild(div);t++;
+      if(t>=script.length){call.disabled=true;call.textContent='end_turn — loop complete ✓';}
+    };
+    reset.onclick=()=>{t=0;log.innerHTML='';call.disabled=false;call.textContent='Call Claude ▶';};
+  })();
+
+  /* C29 — permission resolver */
+  (function(){
+    const lab=document.getElementById('permLab');if(!lab)return;
+    const out=document.getElementById('permResult');
+    document.getElementById('permResolve').onclick=()=>{
+      const deny=document.getElementById('pDeny').checked,ask=document.getElementById('pAsk').checked,allow=document.getElementById('pAllow').checked;
+      out.className='lab-result show';let v;
+      if(deny){out.classList.add('bad');v='<b>BLOCKED 🚫</b> — <code>deny</code> is checked first and the most restrictive match wins. It beats any <code>allow</code>.';}
+      else if(ask){out.classList.add('warnv');v='<b>ASK ❓</b> — no <code>deny</code> matched, so <code>ask</code> wins: the user is prompted to confirm.';}
+      else if(allow){out.classList.add('good');v='<b>RUN ✓</b> — no <code>deny</code> or <code>ask</code> matched, so <code>allow</code> auto-runs it with no prompt.';}
+      else{out.classList.add('info');v='<b>No rule matched</b> → falls through to the active <a href="#c-36">permission mode</a> (e.g. <code>default</code> prompts on first use).';}
+      out.innerHTML=v;
+    };
+  })();
 })();
 </script>
 </body>
