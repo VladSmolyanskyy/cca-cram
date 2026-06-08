@@ -478,6 +478,77 @@ html.light .g-mitem{background:rgba(20,18,40,.04)}
 .g-mitem code{font-family:var(--mono);color:var(--accent2)}
 @media(max-width:560px){.g-match{gap:8px}.g-mitem{font-size:12px;padding:9px 10px}}
 
+/* ============================================================= NEW VISUALIZERS (Bundle 1) */
+/* ---- animated agentic-loop player (M1) ---- */
+.lp-stack{margin-top:12px;font-family:var(--mono);font-size:11.5px;display:flex;flex-direction:column;gap:6px;max-height:236px;overflow:auto}
+.lp-cyc{font-family:var(--mono);font-size:10.5px;color:var(--accent2);font-weight:600;margin:6px 0 -1px}
+.lp-stack .sr-line .who{color:var(--accent2);font-weight:600}
+
+/* ---- hub-and-spoke simulator (M2) ---- */
+.hub-stage{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:13px}
+.hub-coord{font-family:var(--head);font-weight:700;font-size:13.5px;color:#fff;padding:11px 20px;border-radius:12px;border:1px solid var(--accent);background:linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 0 18px rgba(217,119,87,.22);text-align:center}
+html.light .hub-coord{color:#1d1b26}
+.hub-coord .hc-state{display:block;font-family:var(--mono);font-weight:500;font-size:10.5px;color:var(--muted);margin-top:3px}
+.hub-down{color:var(--accent);font-size:17px;font-weight:700}
+.hub-spokes{display:flex;gap:11px;flex-wrap:wrap;justify-content:center}
+.hub-agent{width:148px;border:1px dashed var(--line);border-radius:11px;padding:10px 11px;background:rgba(255,255,255,.03);transition:.28s;opacity:.45}
+html.light .hub-agent{background:rgba(20,18,40,.03)}
+.hub-agent.work{opacity:1;border-color:var(--violet);border-style:solid;box-shadow:0 0 16px rgba(139,124,246,.28)}
+.hub-agent.done{opacity:1;border-color:var(--green);border-style:solid}
+.hub-agent .ha-t{font-family:var(--head);font-weight:600;font-size:12px;color:#fff}
+html.light .hub-agent .ha-t{color:#1d1b26}
+.hub-agent .ha-ctx{font-family:var(--mono);font-size:9px;color:var(--faint);margin-top:6px;padding:4px 6px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--line2)}
+.hub-agent .ha-s{font-family:var(--mono);font-size:10px;margin-top:6px;color:var(--muted)}
+.hub-x{display:none;margin-top:4px;font-family:var(--mono);font-size:11.5px;color:var(--red);text-align:center;padding:8px 12px;border:1px solid rgba(240,96,107,.4);border-radius:9px;background:rgba(240,96,107,.1)}
+.hub-x.show{display:block;animation:fade .3s}
+.hub-agent.peer{border-color:var(--red)!important;border-style:dashed!important;opacity:.85}
+
+/* ---- session fork / resume / rewind tree (M3) ---- */
+.sess-cols{display:flex;gap:13px;margin-top:14px;overflow:auto;padding-bottom:6px;align-items:flex-start}
+.sess-col{min-width:158px;flex:none;border:1px solid var(--line);border-radius:11px;padding:10px;background:rgba(255,255,255,.025);transition:.2s}
+html.light .sess-col{background:rgba(20,18,40,.03)}
+.sess-col.active{border-color:var(--accent);box-shadow:0 0 14px rgba(217,119,87,.2)}
+.sess-col .sc-h{font-family:var(--mono);font-size:10px;color:var(--accent2);margin-bottom:8px;font-weight:600;display:flex;justify-content:space-between;gap:6px}
+.sess-turn{font-family:var(--mono);font-size:10.5px;color:var(--ink);padding:7px 9px;border-radius:8px;border:1px solid var(--line2);background:rgba(255,255,255,.03);margin-bottom:6px;cursor:pointer;transition:.16s}
+.sess-turn:hover{border-color:var(--violet)}
+.sess-turn.sel{border-color:var(--accent);background:rgba(217,119,87,.14)}
+.sess-turn.summary{color:var(--amber);border-color:rgba(240,178,50,.4);font-style:italic}
+.sess-turn.ghost{opacity:.32;text-decoration:line-through;cursor:default}
+
+/* ============================================================= NEW GAMES (Bundle 4) */
+/* ---- build game (tap-to-place assembly) ---- */
+.gb-slots{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.gb-slot{display:flex;align-items:center;gap:10px;min-height:46px;border:1px dashed var(--line);border-radius:11px;padding:8px 12px;transition:.16s}
+.gb-slot .gb-n{width:23px;height:23px;flex:none;border-radius:7px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.gb-slot.filled{border-style:solid;border-color:var(--green);background:rgba(67,201,138,.12)}
+.gb-slot.filled .gb-n{background:var(--green);border-color:transparent;color:#04150d}
+.gb-slot .gb-ph{font-size:12.5px;color:var(--faint);font-style:italic}
+.gb-placed{font-family:var(--head);font-weight:600;font-size:13.5px;color:#fff}
+html.light .gb-placed{color:#1d1b26}
+.gb-bank{display:flex;gap:9px;flex-wrap:wrap}
+.gb-tile{font-family:var(--head);font-weight:600;font-size:13px;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:10px 14px;border-radius:11px;cursor:pointer;transition:.16s}
+html.light .gb-tile{background:rgba(20,18,40,.04)}
+.gb-tile:hover:not(.used){border-color:var(--accent);transform:translateY(-1px)}
+.gb-tile.sel{border-color:var(--accent);background:rgba(217,119,87,.18)}
+.gb-tile.used{opacity:.28;pointer-events:none}
+.gb-tile.shake{animation:shake .4s}
+
+/* ---- speed-round blitz ---- */
+.blitz-timer{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden;margin:12px 0}
+.blitz-timer .bt-fill{height:100%;width:100%;background:linear-gradient(90deg,var(--red),var(--amber),var(--green));transition:width .2s linear}
+.blitz-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.blitz-meta b{color:var(--accent2)}
+.blitz-q{font-size:16.5px;font-weight:600;color:#fff;margin:16px 0;min-height:2.6em;display:flex;align-items:center}
+html.light .blitz-q{color:#1d1b26}
+.blitz-choices{display:flex;gap:10px}
+.blitz-choices .g-choice{flex:1;justify-content:center;text-align:center;font-size:14px;padding:15px 10px}
+.blitz-pre{text-align:center;padding:8px 0}
+.blitz-start{font-family:var(--head);font-weight:700;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--violet));border:none;padding:13px 24px;border-radius:12px;cursor:pointer;box-shadow:0 6px 18px rgba(217,119,87,.3);transition:.16s}
+.blitz-start:hover{transform:translateY(-1px)}
+.blitz-best{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:10px}
+.blitz-combo{color:var(--amber);font-weight:700}
+.blitz-flash{animation:fade .2s}
+
 /* ============================================================= DOMAIN BADGE */
 .dom-badge{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--violet);background:rgba(139,124,246,.12);border:1px solid rgba(139,124,246,.32);padding:3px 9px;border-radius:99px;vertical-align:middle;margin-left:8px;white-space:nowrap}
 html.light .dom-badge{color:#5a4ad1}
@@ -597,6 +668,7 @@ html.light .btn-ghost.on{color:#1d1b26}
     <button data-mode="flash">Flashcards</button>
     <button data-mode="exam">Exam Sim</button>
   </div>
+  <button class="btn-ghost" id="blitzBtn" title="Speed Round — 60-second blitz">⚡ Blitz</button>
   <button class="btn-ghost" id="sectionsBtn" title="Collapse into expandable sections">🗂 Sections</button>
   <button class="btn-ghost" id="themeBtn" title="Toggle light / dark theme" aria-label="Toggle theme">🌙</button>
   <button class="btn-ghost" id="resetBtn">Reset</button>
@@ -821,6 +893,22 @@ html.light .btn-ghost.on{color:#1d1b26}
       <div class="lab-controls"><button class="lab-btn" id="srCall">Call Claude ▶</button><button class="lab-btn ghost" id="srReset">Reset</button></div>
       <div class="sr-log" id="srLog"></div>
     </div>
+    <div class="lab" id="loopPlay">
+      <div class="lab-head"><span class="lab-ico">▶️</span>Interactive — auto-run the whole loop</div>
+      <div class="lab-cap">Press <b>Auto-run</b> and watch <code>stop_reason</code> drive the <b>stateless</b> loop: every <code>tool_use</code> turn runs a tool, appends a <code>tool_result</code> and re-sends the full history — until <code>end_turn</code> breaks it.</div>
+      <div class="flow loop-flow">
+        <span class="node lp" data-phase="0">Gather Context</span><span class="arrow">→</span>
+        <span class="node lp" data-phase="1">Take Action</span><span class="arrow">→</span>
+        <span class="node lp" data-phase="2">Verify Results</span><span class="arrow">↺</span>
+      </div>
+      <div class="lab-controls">
+        <button class="lab-btn" id="lpRun">▶ Auto-run</button>
+        <button class="lab-btn ghost" id="lpStep">Step</button>
+        <button class="lab-btn ghost" id="lpReset">Reset</button>
+        <span class="lab-meta" id="lpMeta">idle</span>
+      </div>
+      <div class="lp-stack" id="lpStack"></div>
+    </div>
     <div class="tabs" data-tabs>
       <div class="tab-bar"><button class="tab-btn active" data-tab="0">The loop</button><button class="tab-btn" data-tab="1">Sending a tool_result</button><button class="tab-btn" data-tab="2">Raw response shape</button></div>
       <div class="tab-panel active" data-panel="0"><div class="code-box"><div class="code-head"><span class="fn">loop.py</span><button class="copy-btn">Copy</button></div><pre><code>while response.stop_reason == "tool_use":
@@ -886,6 +974,8 @@ messages += [
       <tr><td>Act on intermediate text mid-loop</td><td>Ignore text until <code>end_turn</code>, then return the final answer</td></tr>
     </table>
     <div class="callout crit"><span class="ico">🚫</span><div class="ct"><b>Mantra:</b> <i>Always use <code>stop_reason</code> (<code>tool_use</code> vs <code>end_turn</code>). Iteration cap = safety only, not control logic.</i></div></div>
+    <div class="game-mount" data-game="buildloop"></div>
+    <div class="game-mount" data-game="antipattern"></div>
     <div class="game-mount" data-game="m1"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 1 Checkpoint</div>
@@ -1138,6 +1228,28 @@ return finalise(results)</code></pre></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> link the architecture to the benefit — subagents routing <b>through</b> the coordinator (not to each other) is precisely what gives you centralised observability, debugging, control, and policy enforcement.</div></div>
     <details class="reveal"><summary>One-line recall: what do you lose without a coordinator?</summary><div class="rv-body">Traceability and consistency: flows become untraceable and failures inconsistent. The hub centralises all messages and errors, unlocking debugging, control, and policy enforcement.</div></details>
 
+    <div class="lab" id="hubLab">
+      <div class="lab-head"><span class="lab-ico">🕸️</span>Interactive — run the coordinator</div>
+      <div class="lab-cap">Choose how the coordinator dispatches, then <b>Dispatch</b>. Subagents work in <b>isolated context</b> and never talk to each other — everything routes through the hub, which aggregates and resolves conflicts into one answer.</div>
+      <div class="choice-row" id="hubMode">
+        <button class="choice sel" data-mode="single">Single agent</button>
+        <button class="choice" data-mode="sequential">Sequential</button>
+        <button class="choice" data-mode="parallel">Parallel</button>
+      </div>
+      <div class="hub-stage">
+        <div class="hub-coord">🧠 Coordinator<span class="hc-state" id="hubState">idle — pick a mode, then Dispatch</span></div>
+        <div class="hub-down">↓</div>
+        <div class="hub-spokes" id="hubSpokes"></div>
+      </div>
+      <div class="hub-x" id="hubX"></div>
+      <div class="lab-result" id="hubResult"></div>
+      <div class="lab-controls">
+        <button class="lab-btn" id="hubRun">Dispatch ▶</button>
+        <button class="lab-btn ghost" id="hubAnti">Show anti-pattern</button>
+        <button class="lab-btn ghost" id="hubReset">Reset</button>
+      </div>
+    </div>
+    <div class="game-mount" data-game="buildhub"></div>
     <div class="game-mount" data-game="m2"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 2 Checkpoint</div>
@@ -1475,6 +1587,20 @@ async for message in query(prompt=user_request, options=options):
     <div class="callout tip"><span class="ico">📍</span><div class="ct"><b>Iteration control:</b> <code>/rewind</code> is your "undo the last few turns and try again" button — useful when the agent went down a wrong path. <code>/rename</code> keeps a growing list of sessions navigable for retrieval.</div></div>
     <details class="reveal"><summary>Self-test: you took a wrong turn three steps ago — which command gets you back?</summary><div class="rv-body"><code>/rewind</code> — it restores the conversation to a previous state in history, letting you abandon the bad path. (<code>/rename</code> just labels sessions; it doesn't change history.)</div></details>
   </article>
+
+  <div class="lab" id="sessionLab">
+    <div class="lab-head"><span class="lab-ico">🌿</span>Interactive — fork, rewind &amp; resume sessions</div>
+    <div class="lab-cap">Select a turn, then act. <b>Fork</b> branches a new <b>isolated</b> session from that point (its own <code>session_id</code>); <code>/rewind</code> rolls back; <code>/compact</code> summarises to cut tokens; <code>/clear</code> resets but keeps files; <code>/resume</code> reloads by id.</div>
+    <div class="sess-cols" id="sessCols"></div>
+    <div class="lab-controls">
+      <button class="lab-btn" id="sessFork">⑂ Fork from selected</button>
+      <button class="lab-btn ghost" id="sessRewind">/rewind</button>
+      <button class="lab-btn ghost" id="sessCompact">/compact</button>
+      <button class="lab-btn ghost" id="sessClear">/clear</button>
+      <button class="lab-btn ghost" id="sessReset">Reset</button>
+    </div>
+    <div class="lab-meta" id="sessMeta" style="margin-top:8px">Tip: branches run in parallel and share no context — that's what makes forking safe.</div>
+  </div>
 
   <!-- ============================================= MODULE 3 QUIZ -->
   <div class="game-mount" data-game="m3"></div>
@@ -1833,6 +1959,7 @@ async for message in query(prompt=user_request, options=options):
     <div class="callout key"><span class="ico">🔑</span><div class="ct">The sandbox is the "safe environment" the dangerous modes assume. Running <code>bypassPermissions</code> or <code>--dangerously-skip-permissions</code> is only acceptable <b>inside</b> a sandbox, where a runaway agent can't damage your OS.</div></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> a sandbox separates programs from the OS and gives them scratch <b>storage/memory</b>, <b>limited network</b>, and <b>restricted host inspection</b>. It's a containment boundary, not a permission level.</div></div>
 
+    <div class="game-mount" data-game="permfire"></div>
     <div class="game-mount" data-game="m4"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 4 Checkpoint</div>
@@ -3184,6 +3311,7 @@ summary = summarise(read("scratchpad.md"))</code></pre></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> when an answer offers "build an autonomous agent" vs "build a workflow" for a task whose steps are already known, the <b>workflow is correct</b> — it's predetermined, easier to test, and higher success rate. Agents are for genuine uncertainty. Reliability beats novelty.</div></div>
     <details class="reveal"><summary>One-line recall: when do you pick an agent over a workflow?</summary><div class="rv-body">Only when the <b>task details are unclear</b> and the steps can't be fixed in advance — you need dynamic planning. If you can write the steps down, write a workflow: it's easier to test and has a higher success rate.</div></details>
 
+    <div class="game-mount" data-game="blitz" id="blitzGame"></div>
     <div class="game-mount" data-game="m9"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 9 · Final Checkpoint</div>
@@ -4841,7 +4969,7 @@ const FLASHCARDS = [
   const levelOf=xp=>Math.floor(xp/100)+1;
   const titleOf=lv=>TITLES[Math.min(lv-1,TITLES.length-1)];
 
-  const GAME_BADGE={m1:'g-m1',m2:'g-m2',m3:'g-m3',m4:'g-m4',m5:'g-m5',m6:'g-m6',m7:'g-m7',m8:'g-m8',m9:'g-m9',m10:'g-m10',m11:'g-m11',m12:'g-m12',m13:'g-m13'};
+  const GAME_BADGE={m1:'g-m1',m2:'g-m2',m3:'g-m3',m4:'g-m4',m5:'g-m5',m6:'g-m6',m7:'g-m7',m8:'g-m8',m9:'g-m9',m10:'g-m10',m11:'g-m11',m12:'g-m12',m13:'g-m13',buildloop:'build-loop',buildhub:'build-hub',permfire:'perm-fire',antipattern:'anti-spotter',blitz:'blitz-demon'};
   const BADGES=[
     {id:'first',ico:'🌱',name:'First Steps',desc:'Learn your first concept'},
     {id:'half',ico:'🚀',name:'Halfway There',desc:'Learn half the concepts'},
@@ -4860,6 +4988,11 @@ const FLASHCARDS = [
     {id:'g-m11',ico:'🔌',name:'Integration Engineer',desc:'Classify every MCP error'},
     {id:'g-m12',ico:'📤',name:'Extraction Expert',desc:'Sync vs Batch, mastered'},
     {id:'g-m13',ico:'🛡️',name:'Reliability Guru',desc:'Escalate-vs-resolve, nailed'},
+    {id:'build-loop',ico:'🧱',name:'Loop Builder',desc:'Assemble the agentic loop'},
+    {id:'build-hub',ico:'🏗️',name:'Flow Architect',desc:'Build the multi-agent flow'},
+    {id:'perm-fire',ico:'⚖️',name:'Permission Pro',desc:'Clear the permission rapid-fire'},
+    {id:'anti-spotter',ico:'🕵️',name:'Pattern Sleuth',desc:'Spot every anti-pattern'},
+    {id:'blitz-demon',ico:'⚡',name:'Speed Demon',desc:'Score 12+ in the Speed Round'},
     {id:'examready',ico:'🎓',name:'Exam Ready',desc:'Pass the Exam Simulator (≥9/12)'},
     {id:'grand',ico:'👑',name:'Grandmaster',desc:'All concepts + all mini-games'}
   ];
@@ -4873,9 +5006,13 @@ const FLASHCARDS = [
   function updatePill(){xpLv.textContent='Lv '+levelOf(G.xp);xpNum.textContent=G.xp+' XP';}
   function award(n,label){const before=levelOf(G.xp);G.xp+=n;save();updatePill();toast('+'+n+' XP'+(label?' · '+label:''));const after=levelOf(G.xp);if(after>before)setTimeout(()=>toast('⬆ Level '+after+' · '+titleOf(after),'level'),300);}
   function unlock(id){if(G.badges[id])return;G.badges[id]=1;save();const b=BADGES.find(x=>x.id===id);if(b)toast(b.ico+' Badge: '+b.name,'badge');renderBadges();}
+  if(!G.explored)G.explored={};
+  function explore(id,n,label){if(G.explored[id])return;G.explored[id]=1;save();award(n,label);}
   const learnedCount=()=>Object.keys(G.learned).length;
-  const gamesDone=()=>Object.keys(G.games).length;
-  const TOTAL_CONCEPTS=99,TOTAL_GAMES=13;
+  // Grandmaster gates on the 13 CORE module games only — bonus games never raise the bar.
+  const CORE_GAMES=['m1','m2','m3','m4','m5','m6','m7','m8','m9','m10','m11','m12','m13'];
+  const gamesDone=()=>CORE_GAMES.filter(k=>G.games[k]).length;
+  const TOTAL_CONCEPTS=99,TOTAL_GAMES=CORE_GAMES.length;
   function checkMilestones(){const c=learnedCount();if(c>=1)unlock('first');if(c>=Math.floor(TOTAL_CONCEPTS/2))unlock('half');if(c>=TOTAL_CONCEPTS)unlock('lore');if(c>=TOTAL_CONCEPTS&&gamesDone()>=TOTAL_GAMES)unlock('grand');}
 
   const badgeGrid=document.getElementById('badgeGrid');
@@ -4975,7 +5112,51 @@ const FLASHCARDS = [
     m2:{type:'order',title:'Build the Coordinator Playbook',tag:'sequencing puzzle',sub:'Tap the steps in the correct order.',steps:['Decompose the task','Delegate to subagents','Aggregate the results','Resolve conflicts → one answer']},
     m4:{type:'order',title:'Stack the Settings Scopes',tag:'sequencing puzzle',sub:'Tap from HIGHEST priority to lowest.',steps:['Managed (org-wide)','User (~/.claude/settings.json)','Project (.claude/settings.json)','Local (settings.local.json)']},
     m3:{type:'match',title:'Match the Session Command',tag:'matching game',sub:'Tap a command, then its effect.',pairs:[['/resume','Restore a previous session via session_id'],['/compact','Summarise the convo to cut tokens'],['/clear','Reset the chat, keep files & memory'],['/rewind','Roll back to an earlier state'],['/rename','Label a session for easy retrieval'],['/context','Show token usage & remaining window']]},
-    m8:{type:'match',title:'Match Problem → Fix',tag:'matching game',sub:'Tap a context problem, then its remedy.',pairs:[['Lost in the Middle','Chunk &amp; process in sections'],['Progressive Summarization','Extract &amp; re-inject key data'],['Tool Result Bloat','Filter / distill before passing on'],['Conversation History Growth','Summarise or trim the history']]}
+    m8:{type:'match',title:'Match Problem → Fix',tag:'matching game',sub:'Tap a context problem, then its remedy.',pairs:[['Lost in the Middle','Chunk &amp; process in sections'],['Progressive Summarization','Extract &amp; re-inject key data'],['Tool Result Bloat','Filter / distill before passing on'],['Conversation History Growth','Summarise or trim the history']]},
+    buildloop:{type:'build',title:'Assemble the Agentic Loop',tag:'build challenge',sub:'Tap the steps to fill the loop in the right order.',slots:['Gather Context','Take Action (tool_use)','Verify Results']},
+    buildhub:{type:'build',title:'Wire the Multi-Agent Flow',tag:'build challenge',sub:'Build the hub-and-spoke request lifecycle, first step to last.',slots:['User request','Coordinator decomposes','Delegate to isolated subagents','Subagents return findings','Coordinator aggregates','Resolve conflicts → one answer']},
+    permfire:{type:'classify',title:'Permission Rapid-Fire',tag:'mini-game',sub:'Resolve each request — order is deny → ask → allow (most restrictive wins).',buttons:['Allow ✓','Ask ❓','Deny 🚫'],items:[
+      {q:'<code>Bash(rm *)</code> requested · rules: <code>deny Bash(rm *)</code> + <code>allow Bash(*)</code>.',a:2,why:'<code>deny</code> is checked first — the most restrictive match wins, beating any allow.'},
+      {q:'<code>Bash(npm test)</code> · rules: <code>allow Bash(npm test)</code> + <code>ask Bash(*)</code>.',a:1,why:'Order is deny → <b>ask</b> → allow, so a matching <code>ask</code> wins over allow.'},
+      {q:'<code>Read(./src/app.js)</code> · only <code>allow Read(//*)</code> matches.',a:0,why:'No deny/ask match → <code>allow</code> auto-runs it.'},
+      {q:'<code>WebFetch(domain:evil.com)</code> · rule: <code>deny WebFetch(domain:evil.com)</code>.',a:2,why:'Domain matches a deny rule → blocked.'},
+      {q:'<code>mcp__github__create_issue</code> · rule: <code>allow mcp__github</code> (whole server).',a:0,why:'Server-level allow covers every tool on that server.'},
+      {q:'<code>Bash(curl …)</code> · no rule matches · mode is <code>default</code>.',a:1,why:'No match falls through to the mode — <code>default</code> prompts on first use → Ask.'}
+    ]},
+    antipattern:{type:'classify',title:'Spot the Anti-Pattern',tag:'mini-game',sub:'Best practice, or a cardinal sin of agent design?',buttons:['Anti-pattern 🚫','Best practice ✓'],items:[
+      {q:'Decide the loop is finished by checking if the reply text says "done".',a:0,why:'Stopping on text content is brittle — use the structured <code>stop_reason</code>.'},
+      {q:'Break the loop when <code>stop_reason</code> is <code>end_turn</code>.',a:1,why:'The correct, structured stop signal.'},
+      {q:'Parse Claude\'s prose to decide which function to call next.',a:0,why:'Never parse natural language for control — read the <code>tool_use</code> blocks.'},
+      {q:'Treat an empty result set as a failure/error.',a:0,why:'An empty result is success, not an error — zero rows ≠ failure.'},
+      {q:'Give the agent 30 niche tools so one always fits.',a:0,why:'Too many tools confuse selection and invite hallucinated combos — prefer few general tools.'},
+      {q:'Return a structured error (type, retryable, partial results) to the coordinator.',a:1,why:'Structured failures let the coordinator decide recovery.'}
+    ]},
+    blitz:{type:'blitz',title:'Speed Round',tag:'⚡ 60-second blitz',sub:'True or False, as fast as you can. Build a combo, beat your best.',pool:[
+      {q:'stop_reason "end_turn" means Claude wants to call a tool.',a:false},
+      {q:'tool_result messages are sent back in a USER-role message.',a:true},
+      {q:'In hub-and-spoke, subagents talk directly to each other.',a:false},
+      {q:'The Claude API is stateless — you re-send history every turn.',a:true},
+      {q:'In permissions, deny beats allow.',a:true},
+      {q:'Managed (org-wide) settings have the highest priority.',a:true},
+      {q:'Only transient errors should be retried.',a:true},
+      {q:'An empty result set should be treated as an error.',a:false},
+      {q:'tool_choice TOOL forces one specific tool (deterministic).',a:true},
+      {q:'The Batch API suits a blocking pre-merge check devs wait on.',a:false},
+      {q:'claude -p runs Claude Code non-interactively for CI/CD.',a:true},
+      {q:'More tools always means a more capable agent.',a:false},
+      {q:'/compact summarises the conversation to reduce tokens.',a:true},
+      {q:'A forked session shares its parent\'s live context.',a:false},
+      {q:'Plan mode lets Claude freely modify files.',a:false},
+      {q:'A coordinator decomposes, delegates, then aggregates.',a:true},
+      {q:'WebFetch permissions are controlled per domain.',a:true},
+      {q:'retryable:false means it is safe to keep retrying.',a:false},
+      {q:'Structured findings preserve source attribution/provenance.',a:true},
+      {q:'"Lost in the middle" = models may ignore the middle of long context.',a:true},
+      {q:'Subagents get their own isolated context window.',a:true},
+      {q:'opus is the fastest and cheapest model.',a:false},
+      {q:'PreToolUse hooks can enforce gates before a tool runs.',a:true},
+      {q:'You should parse natural language to control the loop.',a:false}
+    ]}
   };
 
   function finishGame(mN,won,scoreLine){
@@ -5039,12 +5220,75 @@ const FLASHCARDS = [
     build();
   }
 
+  /* ---- build: tap-to-place assembly (fill ordered slots) ---- */
+  function renderBuild(mount,mN,g){
+    let order,placed;
+    mount.innerHTML=head(g)+`<div class="game-bar"><span class="gb">Placed <b class="gb-p">0</b>/${g.slots.length}</span></div><div class="gb-slots"></div><div class="gb-bank"></div><div class="g-feed"></div><div class="g-done"></div>`;
+    const slotsEl=mount.querySelector('.gb-slots'),bank=mount.querySelector('.gb-bank'),fb=mount.querySelector('.g-feed'),done=mount.querySelector('.g-done'),pEl=mount.querySelector('.gb-p');
+    function build(){
+      placed=0;pEl.textContent=0;fb.className='g-feed';done.className='g-done';order=sh(g.slots.map((_,i)=>i));
+      slotsEl.innerHTML=g.slots.map((s,i)=>`<div class="gb-slot" data-slot="${i}"><span class="gb-n">${i+1}</span><span class="gb-ph">tap a step…</span></div>`).join('');
+      bank.innerHTML='';
+      order.forEach(i=>{const b=document.createElement('button');b.className='gb-tile';b.dataset.idx=i;b.textContent=g.slots[i];b.onclick=()=>pick(b,i);bank.appendChild(b);});
+    }
+    function pick(btn,i){
+      if(btn.classList.contains('used'))return;
+      if(i===placed){
+        btn.classList.add('used');
+        const slot=slotsEl.querySelector('.gb-slot[data-slot="'+placed+'"]');
+        slot.classList.add('filled');slot.innerHTML=`<span class="gb-n">${placed+1}</span><span class="gb-placed">${g.slots[i]}</span>`;
+        placed++;pEl.textContent=placed;fb.className='g-feed';if(!G.games[mN])award(10);
+        if(placed===g.slots.length){const fresh=finishGame(mN,true,'');done.className='g-done show';done.innerHTML=`<div class="gd-t">🏅 Built it!</div><div class="gd-s">${fresh?'Badge unlocked & XP banked!':'Replayed — no new XP.'}</div><button class="g-replay">↻ Shuffle & replay</button>`;done.querySelector('.g-replay').onclick=build;}
+      }else{
+        btn.classList.add('shake');fb.className='g-feed no show';fb.innerHTML='✗ Not the next step — it comes later. Place them in order.';setTimeout(()=>btn.classList.remove('shake'),450);
+      }
+    }
+    build();
+  }
+
+  /* ---- blitz: timed 60s true/false speed round (interleaved pool) ---- */
+  function renderBlitz(mount,mN,g){
+    const BK='cca-blitz-best';let best=0;try{best=+localStorage.getItem(BK)||0;}catch(e){}
+    mount.innerHTML=head(g)+`<div class="blitz-pre" id="bzPre"><p style="color:var(--muted);font-size:14px;margin:6px 0 16px">60 seconds. True or False, as many as you can — wrong answers reset your combo. Ready?</p><button class="blitz-start" id="bzStart">⚡ Start Speed Round</button><div class="blitz-best">Personal best: <b class="bz-best">${best}</b></div></div><div id="bzPlay" style="display:none"><div class="blitz-meta"><span>⏱ <b class="bz-time">60</b>s</span><span>Score <b class="bz-score">0</b></span><span>Combo <span class="blitz-combo bz-combo">×1</span></span></div><div class="blitz-timer"><div class="bt-fill bz-fill"></div></div><div class="blitz-q"></div><div class="blitz-choices"><button class="g-choice" data-v="true">✓ True</button><button class="g-choice" data-v="false">✗ False</button></div></div><div class="g-done" id="bzDone"></div>`;
+    const pre=mount.querySelector('#bzPre'),play=mount.querySelector('#bzPlay'),done=mount.querySelector('#bzDone');
+    const qEl=mount.querySelector('.blitz-q'),tEl=mount.querySelector('.bz-time'),sEl=mount.querySelector('.bz-score'),cEl=mount.querySelector('.bz-combo'),fill=mount.querySelector('.bz-fill');
+    const choices=[...mount.querySelectorAll('.blitz-choices .g-choice')];
+    let pool,qi,score,combo,timeLeft,timer,running,answering;
+    function showQ(){answering=false;if(qi>=pool.length){pool=sh(g.pool.slice());qi=0;}const it=pool[qi];qEl.textContent=it.q;qEl.classList.remove('blitz-flash');void qEl.offsetWidth;qEl.classList.add('blitz-flash');choices.forEach(c=>c.classList.remove('good','bad'));}
+    function answer(v){
+      if(!running||answering)return;answering=true;const it=pool[qi];const right=((v==='true')===it.a);
+      const btn=choices.find(c=>c.dataset.v===v);
+      if(right){score+=combo;combo++;btn.classList.add('good');}else{combo=1;btn.classList.add('bad');}
+      sEl.textContent=score;cEl.textContent='×'+combo;
+      qi++;setTimeout(showQ,right?150:360);
+    }
+    choices.forEach(c=>c.onclick=()=>answer(c.dataset.v));
+    function start(){
+      pre.style.display='none';done.className='g-done';play.style.display='block';
+      pool=sh(g.pool.slice());qi=0;score=0;combo=1;timeLeft=60;running=true;
+      sEl.textContent=0;cEl.textContent='×1';tEl.textContent=60;fill.style.width='100%';showQ();
+      timer=setInterval(()=>{timeLeft--;tEl.textContent=timeLeft;fill.style.width=(timeLeft/60*100)+'%';if(timeLeft<=0)end();},1000);
+    }
+    function end(){
+      running=false;clearInterval(timer);play.style.display='none';
+      const newBest=score>best;if(newBest){best=score;try{localStorage.setItem(BK,best);}catch(e){}}
+      const won=score>=12,fresh=won&&!G.games[mN];
+      if(won){G.games[mN]=1;save();if(fresh)award(20,'speed round');unlock(GAME_BADGE[mN]);}
+      done.className='g-done show';
+      done.innerHTML=`<div class="gd-t">⚡ Time! Score ${score}</div><div class="gd-s">${newBest?'🎉 New personal best! ':'Personal best: '+best+'. '}${won?(fresh?'Speed Demon badge unlocked!':'Cleared the 12-point bar.'):'Hit 12+ to earn the Speed Demon badge.'}</div><button class="g-replay" id="bzAgain">↻ Go again</button>`;
+      done.querySelector('#bzAgain').onclick=start;
+    }
+    mount.querySelector('#bzStart').onclick=start;
+  }
+
   /* ---- mount all games ---- */
   document.querySelectorAll('.game-mount').forEach(m=>{
     const g=GAMES[m.dataset.game];if(!g)return;m.classList.add('game');
     if(g.type==='classify')renderClassify(m,m.dataset.game,g);
     else if(g.type==='order')renderOrder(m,m.dataset.game,g);
     else if(g.type==='match')renderMatch(m,m.dataset.game,g);
+    else if(g.type==='build')renderBuild(m,m.dataset.game,g);
+    else if(g.type==='blitz')renderBlitz(m,m.dataset.game,g);
   });
 
   /* ===================== EXAM SIMULATOR (official-style scenario MCQs) ===================== */
@@ -5092,6 +5336,105 @@ const FLASHCARDS = [
   document.getElementById('simClose').onclick=()=>{closeSim();toLearn();};
   document.querySelectorAll('.mode-tabs button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.mode==='exam')openSim();else simOv.classList.remove('open');}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&simOv.classList.contains('open')){closeSim();toLearn();}});
+
+  /* ===================== BUNDLE 1 — ORCHESTRATION & LOOP SIMS ===================== */
+  /* ---- ⚡ Blitz quick-launch (top bar) ---- */
+  (function(){
+    const b=document.getElementById('blitzBtn');if(!b)return;
+    b.onclick=()=>{const lt=document.querySelector('.mode-tabs button[data-mode=learn]');if(lt&&!lt.classList.contains('active'))lt.click();const el=document.getElementById('blitzGame');if(el)el.scrollIntoView({behavior:'smooth',block:'center'});};
+  })();
+
+  /* ---- M1 · animated agentic-loop player ---- */
+  (function(){
+    const lab=document.getElementById('loopPlay');if(!lab)return;
+    const nodes=[...lab.querySelectorAll('.node.lp')],stack=document.getElementById('lpStack'),meta=document.getElementById('lpMeta');
+    const runBtn=document.getElementById('lpRun'),stepBtn=document.getElementById('lpStep'),resetBtn=document.getElementById('lpReset');
+    const turns=[
+      {phase:0,cls:'',line:'<span class="who">Gather →</span> read the task, files & history.'},
+      {phase:1,cls:'tu',line:'<span class="who">Claude →</span> <code>stop_reason:"tool_use"</code> · read_file("config.py")'},
+      {phase:2,cls:'tu',line:'<span class="who">Your code →</span> runs it · appends <code>tool_result</code> (user role) · <b>re-sends full history</b>.'},
+      {phase:1,cls:'tu',line:'<span class="who">Claude →</span> <code>stop_reason:"tool_use"</code> · run_tests()'},
+      {phase:2,cls:'tu',line:'<span class="who">Your code →</span> appends the <code>tool_result</code> · calls Claude again.'},
+      {phase:1,cls:'et',line:'<span class="who">Claude →</span> <code>stop_reason:"end_turn"</code> — goal met, no more tools.'},
+      {phase:2,cls:'et',line:'<span class="who">Your code →</span> loop breaks ✓ — return the final answer.'}
+    ];
+    let i=-1,playing=false,timer=null;
+    function step(){
+      i++;
+      if(i>=turns.length){stop();meta.textContent='complete ✓';explore('loop',10,'loop player');return false;}
+      const t=turns[i];
+      nodes.forEach((n,k)=>n.classList.toggle('active',k===t.phase));
+      const d=document.createElement('div');d.className='sr-line in '+t.cls;d.innerHTML=t.line;stack.appendChild(d);stack.scrollTop=stack.scrollHeight;
+      meta.textContent='turn '+(i+1)+'/'+turns.length;return true;
+    }
+    function stop(){playing=false;if(timer)clearInterval(timer);timer=null;runBtn.textContent='▶ Auto-run';}
+    function reset(){stop();i=-1;stack.innerHTML='';nodes.forEach(n=>n.classList.remove('active'));meta.textContent='idle';}
+    function run(){if(playing){stop();return;}if(i>=turns.length-1)reset();playing=true;runBtn.textContent='⏸ Pause';timer=setInterval(()=>{if(!step())stop();},1100);}
+    runBtn.onclick=run;stepBtn.onclick=()=>{if(playing)stop();step();};resetBtn.onclick=reset;
+  })();
+
+  /* ---- M2 · hub-and-spoke coordinator simulator ---- */
+  (function(){
+    const lab=document.getElementById('hubLab');if(!lab)return;
+    const spokes=document.getElementById('hubSpokes'),state=document.getElementById('hubState'),result=document.getElementById('hubResult'),hx=document.getElementById('hubX');
+    const runBtn=document.getElementById('hubRun'),antiBtn=document.getElementById('hubAnti'),resetBtn=document.getElementById('hubReset');
+    let mode='single',anti=false,timers=[];
+    const AGENTS={
+      single:[{t:'Researcher'}],
+      sequential:[{t:'Researcher'},{t:'Analyst'},{t:'Writer'}],
+      parallel:[{t:'Web search'},{t:'Code analysis'},{t:'Docs review'}]
+    };
+    lab.querySelectorAll('#hubMode .choice').forEach(c=>c.onclick=()=>{lab.querySelectorAll('#hubMode .choice').forEach(x=>x.classList.toggle('sel',x===c));mode=c.dataset.mode;render();});
+    function clear(){timers.forEach(clearTimeout);timers=[];}
+    function render(){
+      clear();result.className='lab-result';hx.className='hub-x'+(anti?' show':'');
+      if(anti)hx.innerHTML='✗ <b>Anti-pattern:</b> if subagents talked directly there\'d be no shared context to trust, no central observability, and no way to resolve conflicts. Everything must route through the hub.';
+      state.textContent=(mode==='single'?'1 subagent':AGENTS[mode].length+' subagents')+' · '+mode;
+      spokes.innerHTML=AGENTS[mode].map((a,i)=>`<div class="hub-agent${anti?' peer':''}" data-i="${i}"><div class="ha-t">${a.t}</div><div class="ha-ctx">🔒 isolated context</div><div class="ha-s">queued</div></div>`).join('');
+    }
+    function finish(){
+      state.textContent='aggregating + resolving conflicts → one answer ✓';
+      result.className='lab-result good show';
+      result.innerHTML=anti?'<b>Even with the anti-pattern toggled, the correct design still routes results through the hub.</b> The coordinator merges the isolated findings and resolves conflicts into a single response.':'<b>✓ Done.</b> The coordinator <b>aggregated</b> the isolated findings and <b>resolved conflicts</b> into one answer. Subagents never shared context — the hub did all the merging.';
+      explore('hub',10,'orchestration sim');
+    }
+    function run(){
+      clear();const cards=[...spokes.querySelectorAll('.hub-agent')];if(!cards.length)return;
+      state.textContent='decompose → delegate…';result.className='lab-result';
+      const setS=(c,cls,txt)=>{c.className='hub-agent '+cls+(anti?' peer':'');c.querySelector('.ha-s').textContent=txt;};
+      if(mode==='parallel'){
+        cards.forEach(c=>setS(c,'work','working…'));
+        cards.forEach((c,k)=>timers.push(setTimeout(()=>setS(c,'done','✓ findings'),650+k*130)));
+        timers.push(setTimeout(finish,650+cards.length*130+350));
+      }else{
+        let k=0;const go=()=>{if(k>=cards.length){finish();return;}const c=cards[k];setS(c,'work','working…');timers.push(setTimeout(()=>{setS(c,'done','✓ findings');k++;go();},800));};go();
+      }
+    }
+    antiBtn.onclick=()=>{anti=!anti;antiBtn.textContent=anti?'Hide anti-pattern':'Show anti-pattern';render();};
+    runBtn.onclick=run;resetBtn.onclick=render;
+    render();
+  })();
+
+  /* ---- M3 · session fork / resume / rewind tree ---- */
+  (function(){
+    const lab=document.getElementById('sessionLab');if(!lab)return;
+    const colsEl=document.getElementById('sessCols'),meta=document.getElementById('sessMeta');
+    const forkBtn=document.getElementById('sessFork'),rewBtn=document.getElementById('sessRewind'),compBtn=document.getElementById('sessCompact'),clrBtn=document.getElementById('sessClear'),resetBtn=document.getElementById('sessReset');
+    const IDS=['c3d4','e5f6','7a8b','9c0d','f1e2'];
+    let cols,sel,nextId;
+    function fresh(){cols=[{id:'a1b2',turns:['① start session','② read repo','③ draft plan','④ edit auth.py']}];sel={col:0,turn:3};nextId=0;render();meta.innerHTML='Select a turn, then <b>Fork</b> to branch a new isolated session from it.';}
+    function render(){
+      colsEl.innerHTML=cols.map((c,ci)=>`<div class="sess-col${sel.col===ci?' active':''}"><div class="sc-h"><span>session ${c.id}</span></div>${c.turns.map((t,ti)=>{const isSum=t[0]==='§';return `<div class="sess-turn${isSum?' summary':''}${sel.col===ci&&sel.turn===ti?' sel':''}" data-col="${ci}" data-turn="${ti}">${isSum?'✦ '+t.slice(1):t}</div>`;}).join('')}</div>`).join('');
+      colsEl.querySelectorAll('.sess-turn').forEach(el=>el.onclick=()=>{sel={col:+el.dataset.col,turn:+el.dataset.turn};render();});
+    }
+    forkBtn.onclick=()=>{const src=cols[sel.col];const branch=src.turns.slice(0,sel.turn+1);const id=IDS[nextId++]||('x'+nextId);cols.push({id,turns:[...branch,'⑂ forked branch — diverges here']});sel={col:cols.length-1,turn:cols[cols.length-1].turns.length-1};render();meta.innerHTML='Forked into <b>'+id+'</b> — keeps history up to that point, then diverges with <b>no shared context</b>. Branches run in parallel.';explore('sessions',10,'sessions sim');};
+    rewBtn.onclick=()=>{const c=cols[sel.col];if(sel.turn<c.turns.length-1){c.turns=c.turns.slice(0,sel.turn+1);sel.turn=c.turns.length-1;render();meta.innerHTML='<code>/rewind</code> — rolled <b>'+c.id+'</b> back to the selected turn; later turns discarded.';}else{meta.innerHTML='<code>/rewind</code> — select an <i>earlier</i> turn to roll back to.';}};
+    compBtn.onclick=()=>{const c=cols[sel.col];if(c.turns.length>2){const n=c.turns.length;c.turns=['§ summary of '+n+' earlier turns',c.turns[n-1]];sel.turn=c.turns.length-1;render();meta.innerHTML='<code>/compact</code> — earlier turns summarised into one node to free up the context window.';}else{meta.innerHTML='<code>/compact</code> — needs a few turns to summarise first.';}};
+    clrBtn.onclick=()=>{const c=cols[sel.col];c.turns=['① fresh chat — files & memory kept'];sel.turn=0;render();meta.innerHTML='<code>/clear</code> — chat reset to empty; files and memory are preserved.';};
+    resetBtn.onclick=fresh;
+    colsEl.addEventListener('dblclick',()=>{meta.innerHTML='<code>/resume</code> reloads any session by its <code>session_id</code> — e.g. <b>'+cols[sel.col].id+'</b> — restoring full context/history.';});
+    fresh();
+  })();
 })();
 </script>
 
