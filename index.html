@@ -344,6 +344,91 @@ html.light .lab-btn.ghost{background:rgba(20,18,40,.05);color:var(--muted)}
 html.light .sr-line{background:rgba(20,18,40,.025)}
 html.light .lab-result b{color:#000}
 html.light .fc-front .q{color:#1d1b26}
+
+/* ============================================================= GAMIFICATION */
+.xp-pill{display:flex;align-items:center;gap:6px;font-family:var(--head);font-weight:700;font-size:12px;color:#fff;background:linear-gradient(135deg,rgba(217,119,87,.25),rgba(139,124,246,.25));border:1px solid rgba(217,119,87,.45);padding:5px 10px;border-radius:99px;cursor:pointer;white-space:nowrap;transition:.2s}
+.xp-pill:hover{border-color:var(--accent);box-shadow:0 0 14px rgba(217,119,87,.3)}
+.xp-pill .xp-lv{color:var(--accent2)}
+.xp-pill .xp-num{color:var(--muted);font-weight:600}
+html.light .xp-pill{color:#1d1b26}
+.xp-toast-wrap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:300;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+.xp-toast{font-family:var(--head);font-weight:700;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--violet));padding:10px 18px;border-radius:99px;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:toastUp 2.4s ease forwards}
+.xp-toast.badge{background:linear-gradient(135deg,#f0b232,#d97757);font-size:14.5px}
+.xp-toast.level{background:linear-gradient(135deg,#43c98a,#3dd6c4);color:#04150d}
+@keyframes toastUp{0%{opacity:0;transform:translateY(14px) scale(.92)}12%{opacity:1;transform:none}82%{opacity:1}100%{opacity:0;transform:translateY(-10px)}}
+#ach-overlay{position:fixed;inset:0;z-index:210;background:rgba(6,6,12,.96);backdrop-filter:blur(8px);display:none;flex-direction:column;align-items:center;padding:24px;overflow-y:auto}
+html.light #ach-overlay{background:rgba(247,246,243,.97)}
+#ach-overlay.open{display:flex}
+.ach-top{width:100%;max-width:760px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:10px}
+.ach-top h3{font-family:var(--head);margin:0;font-size:20px}
+.ach-levelcard{width:100%;max-width:760px;background:linear-gradient(120deg,rgba(217,119,87,.14),rgba(139,124,246,.14));border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:16px}
+.ach-levelcard .lvl{font-family:var(--head);font-weight:700;font-size:22px;color:#fff}
+html.light .ach-levelcard .lvl{color:#1d1b26}
+.ach-levelcard .lvl b{background:linear-gradient(120deg,var(--accent2),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ach-xpbar{height:10px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin:11px 0 7px}
+html.light .ach-xpbar{background:rgba(20,18,40,.1)}
+.ach-xpfill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--violet));border-radius:99px;transition:width .5s}
+.ach-meta{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.badge-grid{width:100%;max-width:760px;display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;padding-bottom:30px}
+.badge{padding:16px 13px;border-radius:14px;border:1px solid var(--line);background:var(--panel);text-align:center;transition:.2s;opacity:.45;filter:grayscale(1)}
+.badge.earned{opacity:1;filter:none;border-color:rgba(240,178,50,.5);box-shadow:0 6px 18px rgba(240,178,50,.16)}
+html.light .badge{background:#fff}
+.badge .bico{font-size:30px;display:block;margin-bottom:7px}
+.badge .bname{font-family:var(--head);font-weight:700;font-size:13px;color:#fff}
+html.light .badge .bname{color:#1d1b26}
+.badge.earned .bname{color:#f0b232}
+.badge .bdesc{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4}
+
+/* ============================================================= MINI-GAMES */
+.game{margin:24px 0;padding:20px;border:1px solid rgba(217,119,87,.4);border-radius:16px;background:radial-gradient(circle at 0 0,rgba(217,119,87,.1),transparent 55%),var(--panel);box-shadow:0 8px 26px rgba(0,0,0,.25)}
+html.light .game{background:radial-gradient(circle at 0 0,rgba(217,119,87,.08),transparent 55%),#fff;box-shadow:0 6px 22px rgba(20,18,40,.07)}
+.game-head{font-family:var(--head);font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+html.light .game-head{color:#1d1b26}
+.g-tag{font-family:var(--mono);font-size:10.5px;color:var(--accent2);background:rgba(217,119,87,.12);border:1px solid rgba(217,119,87,.3);padding:3px 9px;border-radius:99px;white-space:nowrap}
+.game-sub{font-size:13px;color:var(--muted);margin:5px 0 10px}
+.game-bar{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:6px}
+.game-bar .gb b{color:var(--accent2)}
+.g-q{font-size:16px;font-weight:600;color:#fff;margin:10px 0 2px;min-height:1.3em}
+html.light .g-q{color:#1d1b26}
+.g-choices{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+.g-choice{font-family:var(--head);font-weight:600;font-size:13.5px;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:11px 17px;border-radius:11px;cursor:pointer;transition:.16s}
+.g-choice:hover:not(:disabled){border-color:var(--accent);transform:translateY(-1px)}
+.g-choice:disabled{cursor:default}
+.g-choice.good{background:rgba(67,201,138,.2);border-color:var(--green);color:#fff}
+.g-choice.bad{background:rgba(240,96,107,.2);border-color:var(--red);color:#fff}
+html.light .g-choice{background:rgba(20,18,40,.04)}
+html.light .g-choice.good,html.light .g-choice.bad{color:#1d1b26}
+.g-feed{margin-top:13px;font-size:13.5px;padding:11px 14px;border-radius:10px;display:none}
+.g-feed.show{display:block;animation:fade .3s}
+.g-feed.ok{background:rgba(67,201,138,.12);border:1px solid rgba(67,201,138,.35)}
+.g-feed.no{background:rgba(240,96,107,.12);border:1px solid rgba(240,96,107,.35)}
+.g-feed b{color:#fff}html.light .g-feed b{color:#1d1b26}
+.g-done{margin-top:14px;padding:18px;border-radius:13px;text-align:center;background:linear-gradient(120deg,rgba(240,178,50,.16),rgba(217,119,87,.14));border:1px solid rgba(240,178,50,.4);display:none}
+.g-done.show{display:block;animation:fade .4s}
+.g-done .gd-t{font-family:var(--head);font-weight:700;font-size:18px;color:#fff}
+html.light .g-done .gd-t{color:#1d1b26}
+.g-done .gd-s{font-size:13px;color:var(--muted);margin-top:5px}
+.g-replay{margin-top:11px;font-family:var(--head);font-weight:600;font-size:12.5px;color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--line);padding:8px 15px;border-radius:9px;cursor:pointer}
+html.light .g-replay{background:rgba(20,18,40,.05)}
+.g-order{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+.g-step{display:flex;align-items:center;gap:11px;font-family:var(--head);font-weight:600;font-size:14px;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:12px 15px;border-radius:11px;cursor:pointer;transition:.16s;text-align:left}
+.g-step:hover:not(.placed){border-color:var(--accent)}
+.g-step .gs-n{width:25px;height:25px;flex:none;border-radius:7px;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.g-step.placed{background:rgba(67,201,138,.15);border-color:var(--green);cursor:default}
+.g-step.placed .gs-n{background:var(--green);border-color:transparent;color:#04150d}
+.g-step.shake{animation:shake .4s}
+html.light .g-step{background:rgba(20,18,40,.04)}
+@keyframes shake{0%,100%{transform:none}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.g-match{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.g-col{display:flex;flex-direction:column;gap:8px}
+.g-mitem{font-size:13px;font-weight:500;color:var(--ink);background:rgba(255,255,255,.05);border:1px solid var(--line);padding:11px 13px;border-radius:10px;cursor:pointer;transition:.16s}
+html.light .g-mitem{background:rgba(20,18,40,.04)}
+.g-mitem:hover:not(.matched){border-color:var(--violet)}
+.g-mitem.sel{border-color:var(--accent);background:rgba(217,119,87,.16)}
+.g-mitem.matched{opacity:.5;border-color:var(--green);background:rgba(67,201,138,.12);cursor:default;pointer-events:none}
+.g-mitem.miss{animation:shake .4s}
+.g-mitem code{font-family:var(--mono);color:var(--accent2)}
+@media(max-width:560px){.g-match{gap:8px}.g-mitem{font-size:12px;padding:9px 10px}}
 </style>
 <script>try{if(localStorage.getItem('cca-theme')==='light')document.documentElement.classList.add('light');}catch(e){}</script>
 </head>
@@ -359,6 +444,7 @@ html.light .fc-front .q{color:#1d1b26}
     <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
     <span class="progress-label" id="plabel">0 / 0 concepts learned · 0%</span>
   </div>
+  <button class="xp-pill" id="trophyBtn" title="Achievements &amp; XP"><span>🏆</span><span class="xp-lv" id="xpLv">Lv 1</span><span class="xp-num" id="xpNum">0 XP</span></button>
   <div class="mode-tabs">
     <button data-mode="learn" class="active">Learn</button>
     <button data-mode="flash">Flashcards</button>
@@ -627,6 +713,7 @@ messages += [
       <tr><td>Act on intermediate text mid-loop</td><td>Ignore text until <code>end_turn</code>, then return the final answer</td></tr>
     </table>
     <div class="callout crit"><span class="ico">🚫</span><div class="ct"><b>Mantra:</b> <i>Always use <code>stop_reason</code> (<code>tool_use</code> vs <code>end_turn</code>). Iteration cap = safety only, not control logic.</i></div></div>
+    <div class="game-mount" data-game="m1"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 1 Checkpoint</div>
       <div class="quiz-sub">5 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -878,6 +965,7 @@ return finalise(results)</code></pre></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> link the architecture to the benefit — subagents routing <b>through</b> the coordinator (not to each other) is precisely what gives you centralised observability, debugging, control, and policy enforcement.</div></div>
     <details class="reveal"><summary>One-line recall: what do you lose without a coordinator?</summary><div class="rv-body">Traceability and consistency: flows become untraceable and failures inconsistent. The hub centralises all messages and errors, unlocking debugging, control, and policy enforcement.</div></details>
 
+    <div class="game-mount" data-game="m2"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 2 Checkpoint</div>
       <div class="quiz-sub">5 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -1216,6 +1304,7 @@ async for message in query(prompt=user_request, options=options):
   </article>
 
   <!-- ============================================= MODULE 3 QUIZ -->
+  <div class="game-mount" data-game="m3"></div>
   <div class="quiz" data-quiz>
     <div class="quiz-title"><span class="qz-ico">🧪</span>Module 3 Checkpoint</div>
     <div class="quiz-sub">6 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -1571,6 +1660,7 @@ async for message in query(prompt=user_request, options=options):
     <div class="callout key"><span class="ico">🔑</span><div class="ct">The sandbox is the "safe environment" the dangerous modes assume. Running <code>bypassPermissions</code> or <code>--dangerously-skip-permissions</code> is only acceptable <b>inside</b> a sandbox, where a runaway agent can't damage your OS.</div></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> a sandbox separates programs from the OS and gives them scratch <b>storage/memory</b>, <b>limited network</b>, and <b>restricted host inspection</b>. It's a containment boundary, not a permission level.</div></div>
 
+    <div class="game-mount" data-game="m4"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 4 Checkpoint</div>
       <div class="quiz-sub">6 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -1926,6 +2016,7 @@ quality bar is met.</code></pre></div></div>
     <div class="callout key"><span class="ico">🔑</span><div class="ct">Adaptive decomposition pairs naturally with <b>goal-oriented coordination (43)</b> and a <b>quality bar (44)</b>: chase the findings, keep asking the questions they raise, and stop when the bar is met and no new signal is appearing.</div></div>
     <details class="reveal"><summary>Self-test: when does an adaptive investigation stop?</summary><div class="rv-body">When <b>no new signal emerges</b> — i.e. the latest findings stop generating new questions worth pursuing. Not at a fixed step count (that would be prompt chaining).</div></details>
 
+    <div class="game-mount" data-game="m5"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 5 Checkpoint</div>
       <div class="quiz-sub">6 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -2161,6 +2252,7 @@ quality bar is met.</code></pre></div></div>
     <div class="callout tip"><span class="ico">📍</span><div class="ct">The middle <b>human-review</b> band is the in-the-loop sweet spot. Every escalation should carry its <b>reason</b> and a <b>draft</b> — exactly the <a href="#m5">Handoff Protocol</a> package — so the human starts informed, not cold. Thresholds are a <b>business decision</b> set by risk appetite: a refund bot wants a very high auto-act bar; an FAQ bot can relax it.</div></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> the better recovery pattern is <b>retry locally → fallback → escalate only if exhausted</b>. "Propagate every error to the coordinator" is the wrong answer. And remember the three hard escalation triggers <i>override</i> confidence.</div></div>
 
+    <div class="game-mount" data-game="m6"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 6 Checkpoint</div>
       <div class="quiz-sub">5 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -2475,6 +2567,7 @@ quality bar is met.</code></pre></div></div>
     </div><div class="cap">Validation wraps the model on both sides — not just at the schema boundary.</div></div>
     <div class="callout warn"><span class="ico">⚠️</span><div class="ct"><b>Schema-valid ≠ correct.</b> A schema can require <code>total_pence: int</code> but cannot require it equal the line-item sum. Catch that in your validation layer (Pydantic), and if it fails, feed the <i>specific</i> problem back and retry.</div></div>
 
+    <div class="game-mount" data-game="m7"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 7 Checkpoint</div>
       <div class="quiz-sub">6 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -2690,6 +2783,7 @@ summary = summarise(read("scratchpad.md"))</code></pre></div>
     <div class="callout key"><span class="ico">🔑</span><div class="ct">The Claude API also offers <b>server-side helpers</b>: <b>context editing</b> (prunes stale tool results / thinking) and <b>compaction</b> (summarises old turns near the limit). These complement the application-level patterns you control directly.</div></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> match each problem to its tactic — <b>numbers lost across steps</b> → extract + re-inject; <b>ignores the middle</b> → chunk; <b>verbose tool output</b> → distil/filter; <b>history balloons</b> → summarise/trim. The unifying principle: <b>keep the bulk out of context, pass forward only the distilled result.</b></div></div>
 
+    <div class="game-mount" data-game="m8"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 8 Checkpoint</div>
       <div class="quiz-sub">5 questions. Click an answer to lock it in and reveal the explanation.</div>
@@ -2917,6 +3011,7 @@ summary = summarise(read("scratchpad.md"))</code></pre></div>
     <div class="callout exam"><span class="ico">🎯</span><div class="ct"><b>On the exam:</b> when an answer offers "build an autonomous agent" vs "build a workflow" for a task whose steps are already known, the <b>workflow is correct</b> — it's predetermined, easier to test, and higher success rate. Agents are for genuine uncertainty. Reliability beats novelty.</div></div>
     <details class="reveal"><summary>One-line recall: when do you pick an agent over a workflow?</summary><div class="rv-body">Only when the <b>task details are unclear</b> and the steps can't be fixed in advance — you need dynamic planning. If you can write the steps down, write a workflow: it's easier to test and has a higher success rate.</div></details>
 
+    <div class="game-mount" data-game="m9"></div>
     <div class="quiz" data-quiz>
       <div class="quiz-title"><span class="qz-ico">🧪</span>Module 9 · Final Checkpoint</div>
       <div class="quiz-sub">6 questions mixing concepts from across the whole exam. Click an answer to lock it in and reveal the explanation.</div>
@@ -3017,6 +3112,18 @@ summary = summarise(read("scratchpad.md"))</code></pre></div>
     <button class="flash-known" id="fcShuffle">⤮ Shuffle</button>
   </div>
 </div>
+
+<!-- ============================================================ ACHIEVEMENTS OVERLAY -->
+<div id="ach-overlay">
+  <div class="ach-top"><h3>🏆 Achievements</h3><button class="btn-ghost" id="achClose">✕ Close (Esc)</button></div>
+  <div class="ach-levelcard">
+    <div class="lvl">Level <b id="achLv">1</b> · <span id="achTitle">Initiate</span></div>
+    <div class="ach-xpbar"><div class="ach-xpfill" id="achXpFill"></div></div>
+    <div class="ach-meta" id="achMeta">0 XP</div>
+  </div>
+  <div class="badge-grid" id="badgeGrid"></div>
+</div>
+<div class="xp-toast-wrap" id="toastWrap"></div>
 
 <footer>
   <p>CCA Foundations · Master Cram — an independent study aid. Not affiliated with or endorsed by Anthropic.<br>
@@ -3436,6 +3543,194 @@ const FLASHCARDS = [
       out.innerHTML=v;
     };
   })();
+})();
+</script>
+<script>
+/* ===================== GAMIFICATION + MINI-GAMES ===================== */
+(function(){
+  const XK='cca-xp-v1';
+  let G={xp:0,badges:{},learned:{},quizQ:{},games:{},quizAced:{},seeded:0};
+  try{const s=JSON.parse(localStorage.getItem(XK)||'{}');G=Object.assign(G,s);}catch(e){}
+  const save=()=>{try{localStorage.setItem(XK,JSON.stringify(G));}catch(e){}};
+
+  const TITLES=['Initiate','Apprentice','Practitioner','Specialist','Architect','Senior Architect','Master Architect'];
+  const levelOf=xp=>Math.floor(xp/100)+1;
+  const titleOf=lv=>TITLES[Math.min(lv-1,TITLES.length-1)];
+
+  const GAME_BADGE={m1:'g-m1',m2:'g-m2',m3:'g-m3',m4:'g-m4',m5:'g-m5',m6:'g-m6',m7:'g-m7',m8:'g-m8',m9:'g-m9'};
+  const BADGES=[
+    {id:'first',ico:'🌱',name:'First Steps',desc:'Learn your first concept'},
+    {id:'half',ico:'🚀',name:'Halfway There',desc:'Learn half the concepts'},
+    {id:'lore',ico:'📚',name:'Loremaster',desc:'Learn all 76 concepts'},
+    {id:'quizace',ico:'🎯',name:'Quiz Ace',desc:'Get a checkpoint quiz perfect'},
+    {id:'g-m1',ico:'🔁',name:'Loop Reader',desc:'Beat the stop_reason game'},
+    {id:'g-m2',ico:'🕸️',name:'Orchestrator',desc:'Order the coordinator playbook'},
+    {id:'g-m3',ico:'🗂️',name:'Session Keeper',desc:'Match every session command'},
+    {id:'g-m4',ico:'🪜',name:'Config Master',desc:'Stack the settings scopes'},
+    {id:'g-m5',ico:'🚧',name:'Gatekeeper',desc:'Guidance vs gate, mastered'},
+    {id:'g-m6',ico:'🩺',name:'Error Medic',desc:'Triage every error right'},
+    {id:'g-m7',ico:'🛠️',name:'Tool Smith',desc:'Pick every tool_choice'},
+    {id:'g-m8',ico:'🧩',name:'Context Tamer',desc:'Match every fix'},
+    {id:'g-m9',ico:'🏛️',name:'Solution Architect',desc:'Nail every architecture call'},
+    {id:'grand',ico:'👑',name:'Grandmaster',desc:'All concepts + all mini-games'}
+  ];
+
+  /* ---- toasts ---- */
+  const tw=document.getElementById('toastWrap');
+  function toast(msg,cls){const d=document.createElement('div');d.className='xp-toast'+(cls?' '+cls:'');d.innerHTML=msg;tw.appendChild(d);setTimeout(()=>d.remove(),2400);}
+
+  /* ---- pill + achievements ---- */
+  const xpLv=document.getElementById('xpLv'),xpNum=document.getElementById('xpNum');
+  function updatePill(){xpLv.textContent='Lv '+levelOf(G.xp);xpNum.textContent=G.xp+' XP';}
+  function award(n,label){const before=levelOf(G.xp);G.xp+=n;save();updatePill();toast('+'+n+' XP'+(label?' · '+label:''));const after=levelOf(G.xp);if(after>before)setTimeout(()=>toast('⬆ Level '+after+' · '+titleOf(after),'level'),300);}
+  function unlock(id){if(G.badges[id])return;G.badges[id]=1;save();const b=BADGES.find(x=>x.id===id);if(b)toast(b.ico+' Badge: '+b.name,'badge');renderBadges();}
+  const learnedCount=()=>Object.keys(G.learned).length;
+  const gamesDone=()=>Object.keys(G.games).length;
+  function checkMilestones(){const c=learnedCount();if(c>=1)unlock('first');if(c>=38)unlock('half');if(c>=76)unlock('lore');if(c>=76&&gamesDone()>=9)unlock('grand');}
+
+  const badgeGrid=document.getElementById('badgeGrid');
+  function renderBadges(){badgeGrid.innerHTML=BADGES.map(b=>`<div class="badge ${G.badges[b.id]?'earned':''}"><span class="bico">${b.ico}</span><span class="bname">${b.name}</span><div class="bdesc">${b.desc}</div></div>`).join('');}
+  const achOv=document.getElementById('ach-overlay');
+  function openAch(){const lv=levelOf(G.xp);document.getElementById('achLv').textContent=lv;document.getElementById('achTitle').textContent=titleOf(lv);document.getElementById('achXpFill').style.width=(G.xp%100)+'%';const earned=Object.keys(G.badges).length;document.getElementById('achMeta').textContent=`${G.xp} XP · ${100-(G.xp%100)} to next level · ${earned}/${BADGES.length} badges`;renderBadges();achOv.classList.add('open');}
+  document.getElementById('trophyBtn').onclick=openAch;
+  document.getElementById('achClose').onclick=()=>achOv.classList.remove('open');
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')achOv.classList.remove('open');});
+
+  /* ---- seed XP from any progress made before gamification existed ---- */
+  if(!G.seeded){let n=0;document.querySelectorAll('.got-it').forEach(cb=>{if(cb.checked){const id=cb.dataset.cid||cb.closest('.concept').id;if(!G.learned[id]){G.learned[id]=1;n++;}}});if(n){G.xp+=n*5;}G.seeded=1;save();}
+  updatePill();renderBadges();checkMilestones();
+
+  /* ---- wire concept "got it" ---- */
+  document.addEventListener('change',e=>{const cb=e.target.closest&&e.target.closest('.got-it');if(!cb)return;if(cb.checked){const id=cb.dataset.cid||cb.closest('.concept').id;if(!G.learned[id]){G.learned[id]=1;save();award(5,'concept learned');checkMilestones();}}});
+
+  /* ---- wire quizzes (runs after the quiz engine locks the question) ---- */
+  document.addEventListener('click',e=>{
+    const opt=e.target.closest&&e.target.closest('.opt');if(!opt)return;
+    const q=opt.closest('.q'),qz=opt.closest('[data-quiz]');if(!qz)return;
+    const qid=(qz.dataset.qid||'qz')+':'+[...qz.querySelectorAll('.q')].indexOf(q);
+    if(opt.classList.contains('correct')&&!G.quizQ[qid]){G.quizQ[qid]=1;save();award(5,'quiz');}
+    // quiz-ace: all questions answered and none wrong
+    const qs=[...qz.querySelectorAll('.q')];
+    if(qs.every(x=>x.dataset.locked)&&!qz.querySelector('.opt.wrong')){if(!G.quizAced[qz.dataset.qid||'q']){G.quizAced[qz.dataset.qid||'q']=1;save();unlock('quizace');}}
+  });
+
+  /* ===================== GAME DATA ===================== */
+  const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  const GAMES={
+    m1:{type:'classify',title:'Rapid Round — tool_use or end_turn?',tag:'mini-game',sub:'Read each turn. Which stop_reason is it?',buttons:['tool_use','end_turn'],items:[
+      {q:'Claude needs the current date before it can answer.',a:0,why:'It wants a tool → <code>tool_use</code>. Your code runs it and returns a tool_result.'},
+      {q:'Claude has written the final summary the user asked for.',a:1,why:'It is returning a result → <code>end_turn</code>. Break the loop.'},
+      {q:'Claude asks to read <code>config.py</code> to continue.',a:0,why:'Reading a file is a tool call → <code>tool_use</code>.'},
+      {q:'"All done — your tests pass." Nothing more is needed.',a:1,why:'Final answer → <code>end_turn</code>.'},
+      {q:'Claude wants to run the test suite via Bash.',a:0,why:'Running a command is a tool call → <code>tool_use</code>.'},
+      {q:'Claude has fully answered with no further actions.',a:1,why:'Done → <code>end_turn</code>.'}
+    ]},
+    m5:{type:'classify',title:'Guidance or Gate?',tag:'mini-game',sub:'Is this a soft instruction or a hard, enforced rule?',buttons:['Prompt-based guidance','Programmatic gate'],items:[
+      {q:'The system prompt says "always run tests before committing".',a:0,why:'Instruction only — the model can drift. Not enforced.'},
+      {q:'A PreToolUse hook blocks <code>commit</code> until tests have passed.',a:1,why:'A hard gate — impossible to skip.'},
+      {q:'You ask the agent to "please cite a source for each claim".',a:0,why:'Prompt guidance; no guarantee.'},
+      {q:'Execution is blocked unless a required field is present.',a:1,why:'Programmatic enforcement.'},
+      {q:'The prompt politely asks the model to follow the steps in order.',a:0,why:'Guidance — can be ignored.'},
+      {q:'A hook refuses the deploy tool until a review flag is set.',a:1,why:'A gate enforced by code.'}
+    ]},
+    m6:{type:'classify',title:'Error Triage',tag:'mini-game',sub:'Map each failure to the right recovery action.',buttons:['Retry','Fallback','Escalate','Communicate'],items:[
+      {q:'A transient network timeout with <code>retryable: true</code>.',a:0,why:'Safe to retry.'},
+      {q:'Auth failed, <code>retryable: false</code> — looping won\'t help.',a:3,why:'Don\'t loop — communicate the failure.'},
+      {q:'The primary search tool is down; a secondary tool exists.',a:1,why:'Try the fallback.'},
+      {q:'Local retries and fallback are exhausted and it still fails.',a:2,why:'Escalate — you\'ve done all you can locally.'},
+      {q:'A subagent hit a rate limit it can recover from shortly.',a:0,why:'Retry after a short wait.'},
+      {q:'The task needs a human decision the agent can\'t make.',a:2,why:'Escalate to a human (handoff protocol).'}
+    ]},
+    m7:{type:'classify',title:'Pick the tool_choice',tag:'mini-game',sub:'Which tool_choice fits the scenario?',buttons:['AUTO','ANY','TOOL','NONE'],items:[
+      {q:'A general assistant that may or may not need tools.',a:0,why:'AUTO — flexible, model decides.'},
+      {q:'A strict extraction pipeline that must call one specific tool.',a:2,why:'TOOL — forced, deterministic path.'},
+      {q:'You want pure reasoning, no tools at all.',a:3,why:'NONE.'},
+      {q:'You require some tool use, but the model picks which.',a:1,why:'ANY — guarantees a tool, model chooses.'},
+      {q:'An open-ended coding agent choosing tools at runtime.',a:0,why:'AUTO.'},
+      {q:'Force the model down a single deterministic path.',a:2,why:'TOOL.'}
+    ]},
+    m9:{type:'classify',title:'Workflow, Agent, or Multi-agent?',tag:'capstone game',sub:'Choose the right architecture for each job.',buttons:['Workflow','Agent','Multi-agent'],items:[
+      {q:'You know the exact, fixed sequence of steps in advance.',a:0,why:'Workflow — predetermined, reliable, testable.'},
+      {q:'The task is open-ended; the path can\'t be predetermined.',a:1,why:'Agent — dynamic planning with tools.'},
+      {q:'A big task split across a coordinator and several subagents.',a:2,why:'Multi-agent (hub-and-spoke).'},
+      {q:'Reliability matters most and the steps are predictable.',a:0,why:'Workflow — prioritise reliability.'},
+      {q:'Independent research scopes aggregated into one answer.',a:2,why:'Multi-agent with partitioned scopes.'},
+      {q:'Flexible problem-solving with a small set of abstract tools.',a:1,why:'Agent.'}
+    ]},
+    m2:{type:'order',title:'Build the Coordinator Playbook',tag:'sequencing puzzle',sub:'Tap the steps in the correct order.',steps:['Decompose the task','Delegate to subagents','Aggregate the results','Resolve conflicts → one answer']},
+    m4:{type:'order',title:'Stack the Settings Scopes',tag:'sequencing puzzle',sub:'Tap from HIGHEST priority to lowest.',steps:['Managed (org-wide)','User (~/.claude/settings.json)','Project (.claude/settings.json)','Local (settings.local.json)']},
+    m3:{type:'match',title:'Match the Session Command',tag:'matching game',sub:'Tap a command, then its effect.',pairs:[['/resume','Restore a previous session via session_id'],['/compact','Summarise the convo to cut tokens'],['/clear','Reset the chat, keep files & memory'],['/rewind','Roll back to an earlier state'],['/rename','Label a session for easy retrieval'],['/context','Show token usage & remaining window']]},
+    m8:{type:'match',title:'Match Problem → Fix',tag:'matching game',sub:'Tap a context problem, then its remedy.',pairs:[['Lost in the Middle','Chunk &amp; process in sections'],['Progressive Summarization','Extract &amp; re-inject key data'],['Tool Result Bloat','Filter / distill before passing on'],['Conversation History Growth','Summarise or trim the history']]}
+  };
+
+  function finishGame(mN,won,scoreLine){
+    const fresh=!G.games[mN];
+    if(won&&fresh){G.games[mN]=1;save();award(20,'game complete');unlock(GAME_BADGE[mN]);checkMilestones();}
+    return fresh;
+  }
+
+  /* ===================== ENGINES ===================== */
+  function head(g){return `<div class="game-head">🎮 ${g.title} <span class="g-tag">${g.tag}</span></div>${g.sub?`<div class="game-sub">${g.sub}</div>`:''}`;}
+
+  function renderClassify(mount,mN,g){
+    const earnable=!G.games[mN];
+    let order=sh(g.items.map((_,i)=>i)),idx=0,correct=0;
+    mount.innerHTML=head(g)+`<div class="game-bar"><span class="gb">Question <b class="gq-i">1</b>/${g.items.length}</span><span class="gb">Streak <b class="gq-s">0</b></span><span class="gb">Correct <b class="gq-c">0</b></span></div><div class="g-q"></div><div class="g-choices"></div><div class="g-feed"></div><div class="g-done"></div>`;
+    const qEl=mount.querySelector('.g-q'),ch=mount.querySelector('.g-choices'),fb=mount.querySelector('.g-feed'),done=mount.querySelector('.g-done'),iEl=mount.querySelector('.gq-i'),sEl=mount.querySelector('.gq-s'),cEl=mount.querySelector('.gq-c');
+    let streak=0;
+    function show(){const it=g.items[order[idx]];iEl.textContent=idx+1;qEl.innerHTML=it.q;fb.className='g-feed';ch.innerHTML='';g.buttons.forEach((b,bi)=>{const btn=document.createElement('button');btn.className='g-choice';btn.innerHTML=b;btn.onclick=()=>pick(bi,btn,it);ch.appendChild(btn);});}
+    function pick(bi,btn,it){
+      [...ch.children].forEach(c=>c.disabled=true);
+      const right=bi===it.a;
+      if(right){btn.classList.add('good');correct++;cEl.textContent=correct;streak++;sEl.textContent=streak;fb.className='g-feed ok show';fb.innerHTML='✓ <b>Correct.</b> '+it.why;if(!G.games[mN])award(10);}
+      else{btn.classList.add('bad');ch.children[it.a].classList.add('good');streak=0;sEl.textContent=0;fb.className='g-feed no show';fb.innerHTML='✗ '+it.why;}
+      setTimeout(next,right?900:1700);
+    }
+    function next(){idx++;if(idx<g.items.length){show();}else{const won=correct>=Math.ceil(g.items.length*0.7);const fresh=finishGame(mN,won,'');done.className='g-done show';done.innerHTML=won?`<div class="gd-t">🏅 Round complete — ${correct}/${g.items.length}</div><div class="gd-s">${fresh?'Badge unlocked & XP banked!':'Already mastered — replay for practice (no new XP).'}</div><button class="g-replay">↻ Play again</button>`:`<div class="gd-t">So close — ${correct}/${g.items.length}</div><div class="gd-s">Hit 70%+ to earn the badge. Give it another go!</div><button class="g-replay">↻ Try again</button>`;qEl.innerHTML='';ch.innerHTML='';fb.className='g-feed';done.querySelector('.g-replay').onclick=()=>{idx=0;correct=0;streak=0;order=sh(g.items.map((_,i)=>i));cEl.textContent=0;sEl.textContent=0;done.className='g-done';show();};}}
+    show();
+  }
+
+  function renderOrder(mount,mN,g){
+    const earnable=!G.games[mN];
+    mount.innerHTML=head(g)+`<div class="game-bar"><span class="gb">Placed <b class="go-p">0</b>/${g.steps.length}</span></div><div class="g-order"></div><div class="g-feed"></div><div class="g-done"></div>`;
+    const list=mount.querySelector('.g-order'),fb=mount.querySelector('.g-feed'),done=mount.querySelector('.g-done'),pEl=mount.querySelector('.go-p');
+    let placed=0;
+    function build(){placed=0;pEl.textContent=0;fb.className='g-feed';done.className='g-done';list.innerHTML='';
+      sh(g.steps.map((s,i)=>({s,i}))).forEach(o=>{const b=document.createElement('button');b.className='g-step';b.dataset.correct=o.i;b.innerHTML=`<span class="gs-n">?</span><span>${o.s}</span>`;b.onclick=()=>tap(b);list.appendChild(b);});}
+    function tap(b){if(b.classList.contains('placed'))return;
+      if(+b.dataset.correct===placed){b.classList.add('placed');b.querySelector('.gs-n').textContent=placed+1;placed++;pEl.textContent=placed;if(!G.games[mN])award(10);
+        if(placed===g.steps.length){const fresh=finishGame(mN,true,'');done.className='g-done show';done.innerHTML=`<div class="gd-t">🏅 Correct order!</div><div class="gd-s">${fresh?'Badge unlocked & XP banked!':'Replayed — no new XP, but nicely done.'}</div><button class="g-replay">↻ Shuffle & replay</button>`;done.querySelector('.g-replay').onclick=build;}
+      }else{b.classList.add('shake');fb.className='g-feed no show';fb.innerHTML='✗ Not next. Resetting — start from the first step.';setTimeout(()=>{b.classList.remove('shake');[...list.children].forEach(c=>{c.classList.remove('placed');c.querySelector('.gs-n').textContent='?';});placed=0;pEl.textContent=0;},450);}
+    }
+    build();
+  }
+
+  function renderMatch(mount,mN,g){
+    const earnable=!G.games[mN];
+    mount.innerHTML=head(g)+`<div class="game-bar"><span class="gb">Matched <b class="gm-p">0</b>/${g.pairs.length}</span></div><div class="g-match"><div class="g-col gc-l"></div><div class="g-col gc-r"></div></div><div class="g-feed"></div><div class="g-done"></div>`;
+    const L=mount.querySelector('.gc-l'),R=mount.querySelector('.gc-r'),fb=mount.querySelector('.g-feed'),done=mount.querySelector('.g-done'),pEl=mount.querySelector('.gm-p');
+    let sel=null,matched=0;
+    function build(){matched=0;pEl.textContent=0;fb.className='g-feed';done.className='g-done';sel=null;L.innerHTML='';R.innerHTML='';
+      g.pairs.forEach((p,i)=>{const a=document.createElement('div');a.className='g-mitem';a.dataset.side='l';a.dataset.pair=i;a.innerHTML='<code>'+p[0]+'</code>';a.onclick=()=>tap(a);L.appendChild(a);});
+      sh(g.pairs.map((p,i)=>({t:p[1],i}))).forEach(o=>{const b=document.createElement('div');b.className='g-mitem';b.dataset.side='r';b.dataset.pair=o.i;b.innerHTML=o.t;b.onclick=()=>tap(b);R.appendChild(b);});}
+    function tap(el){if(el.classList.contains('matched'))return;
+      if(!sel){sel=el;el.classList.add('sel');return;}
+      if(sel===el){el.classList.remove('sel');sel=null;return;}
+      if(sel.dataset.side===el.dataset.side){sel.classList.remove('sel');sel=el;el.classList.add('sel');return;}
+      if(sel.dataset.pair===el.dataset.pair){el.classList.add('matched');sel.classList.add('matched');sel.classList.remove('sel');sel=null;matched++;pEl.textContent=matched;if(!G.games[mN])award(10);
+        if(matched===g.pairs.length){const fresh=finishGame(mN,true,'');done.className='g-done show';done.innerHTML=`<div class="gd-t">🏅 All matched!</div><div class="gd-s">${fresh?'Badge unlocked & XP banked!':'Replayed — no new XP.'}</div><button class="g-replay">↻ Shuffle & replay</button>`;done.querySelector('.g-replay').onclick=build;}
+      }else{const a=sel,b=el;a.classList.add('miss');b.classList.add('miss');fb.className='g-feed no show';fb.innerHTML='✗ Not a match — try again.';setTimeout(()=>{a.classList.remove('miss','sel');b.classList.remove('miss');},450);sel=null;}
+    }
+    build();
+  }
+
+  /* ---- mount all games ---- */
+  document.querySelectorAll('.game-mount').forEach(m=>{
+    const g=GAMES[m.dataset.game];if(!g)return;m.classList.add('game');
+    if(g.type==='classify')renderClassify(m,m.dataset.game,g);
+    else if(g.type==='order')renderOrder(m,m.dataset.game,g);
+    else if(g.type==='match')renderMatch(m,m.dataset.game,g);
+  });
 })();
 </script>
 </body>
