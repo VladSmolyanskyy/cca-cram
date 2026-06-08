@@ -21,11 +21,14 @@
   --sans:'Inter',system-ui,sans-serif; --head:'Space Grotesk',var(--sans);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
   line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  overflow-wrap:break-word;max-width:100%;
 }
+/* never let media or long unbreakable strings blow out the viewport */
+img,svg,video,canvas{max-width:100%}
 body::before{
   content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
@@ -249,11 +252,56 @@ footer a{color:var(--muted)}
 .kbd{font-family:var(--mono);font-size:11px;background:rgba(255,255,255,.07);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:1px 6px;color:#fff}
 
 @media(max-width:640px){
-  .mode-tabs button{padding:5px 8px;font-size:11px}
+  /* tighter gutters → more usable width, less chance of overflow */
+  .wrap{padding:0 15px}
+  section.module{margin:48px 0}
+  /* TOPBAR: let it wrap cleanly; progress bar drops to its own full-width row */
+  #topbar .bar-in{gap:8px;flex-wrap:wrap;padding:8px 14px}
   .brand-mini span{display:none}
-  .concept{padding:20px 17px}
-  .exam-meta{gap:14px}
-  #topbar .bar-in{gap:9px;flex-wrap:wrap}
+  .progress-wrap{order:10;flex-basis:100%;min-width:100%}
+  .mode-tabs{order:5}
+  .mode-tabs button{padding:5px 9px;font-size:11px}
+  .xp-pill{padding:5px 8px;font-size:11px}
+  .xp-pill .xp-num{display:none}            /* keep level, drop XP count to save room */
+  .btn-ghost{padding:6px 9px}
+  #navpills .np-in{padding:8px 14px}
+  /* HERO */
+  #hero{padding:40px 0 22px}
+  .exam-meta{gap:14px 18px}
+  .exam-meta .em .n{font-size:22px}
+  /* CONCEPT / CONTENT cards: trim padding, keep breathing room */
+  .concept{padding:20px 16px}
+  .concept-head h3{font-size:19px}
+  .quiz,.exam-overview{padding:20px 15px}
+  .lab{padding:16px 14px}
+  .game{padding:18px 14px}
+  .sim-card{padding:20px 16px}
+  .banner{padding:26px 18px}
+  .diagram{padding:16px 12px}
+  /* TABLES: the #1 horizontal-overflow culprit. A too-wide table now scrolls
+     inside its OWN box (contained — never shifts the page). Keep words & code
+     tokens whole so we don't get ugly mid-word breaks like "defau lt". */
+  .tbl{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tbl th,.tbl td{padding:9px 11px;font-size:13.5px;overflow-wrap:normal;word-break:normal}
+  .tbl td code{white-space:normal;overflow-wrap:normal;word-break:keep-all}
+  .lab-cap code,.lab-result code{white-space:normal;word-break:break-word}
+  /* CALLOUTS: flex children default to min-width:auto, so a long unbreakable
+     run (e.g. "transient/validation/business/permission") refuses to shrink and
+     gets clipped. min-width:0 + anywhere lets the text wrap to fit. */
+  .callout .ct,.lab-head,.concept-head h3,.mod-head h2,.q-text{min-width:0}
+  .callout .ct{overflow-wrap:anywhere}
+  /* CODE: long inline tokens / globs shouldn't push the layout out */
+  code:not(pre code){overflow-wrap:anywhere;word-break:break-word}
+  .code-box pre{font-size:12px;padding:13px 13px}
+  /* DOMAIN ROWS: stack the label above its bar on small screens */
+  .dom-row{flex-wrap:wrap}
+  .dom-row .dl{width:100%;margin-bottom:2px}
+}
+/* very small phones */
+@media(max-width:400px){
+  .mode-tabs button{padding:5px 7px;font-size:10.5px}
+  #hero h1{font-size:30px}
+  .exam-meta{gap:12px}
 }
 
 /* ============================================================= INTERACTIVE LABS */
@@ -491,6 +539,43 @@ html.light .sim-btn.ghost{background:rgba(20,18,40,.05)}
 .sim-result .sr-verdict{font-family:var(--head);font-weight:700;font-size:22px;margin:10px 0 6px}
 .sim-result .sr-sub{color:var(--muted);font-size:14px;margin-bottom:20px}
 .sim-result.pass .sr-verdict{color:var(--green)}.sim-result.fail .sr-verdict{color:var(--amber)}
+
+/* ============================================================= FUN TIPS (auto-injected, one per module) */
+.funtip{margin:30px 0 2px;padding:14px 16px;border:1px dashed rgba(240,178,50,.45);border-radius:14px;
+  background:radial-gradient(circle at 0 0,rgba(240,178,50,.12),transparent 60%),rgba(240,178,50,.045);
+  display:flex;align-items:flex-start;gap:12px;font-size:14.5px}
+.funtip .ft-ico{font-size:21px;flex:none;line-height:1.3;transform-origin:60% 60%;animation:ftwiggle 5s ease-in-out infinite}
+@keyframes ftwiggle{0%,90%,100%{transform:rotate(0)}93%{transform:rotate(-16deg)}95%{transform:rotate(13deg)}97%{transform:rotate(-7deg)}}
+.funtip .ft-body{flex:1;min-width:0}
+.funtip .ft-label{font-family:var(--head);font-weight:700;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:3px}
+.funtip .ft-text{color:var(--ink)}
+.funtip .ft-text b{color:#fff}.funtip .ft-text code{white-space:normal}
+html.light .funtip .ft-text b{color:#1d1b26}
+.funtip .ft-reroll{font-family:var(--head);font-weight:600;font-size:11.5px;color:var(--amber);background:rgba(240,178,50,.1);border:1px solid rgba(240,178,50,.32);padding:6px 12px;border-radius:99px;cursor:pointer;white-space:nowrap;transition:.18s;align-self:center;flex:none}
+.funtip .ft-reroll:hover{background:rgba(240,178,50,.22);color:#fff}
+html.light .funtip .ft-reroll:hover{color:#1d1b26}
+@media(max-width:640px){.funtip{flex-wrap:wrap;padding:13px 14px;gap:10px}.funtip .ft-reroll{order:3;margin-top:6px;align-self:flex-start}}
+
+/* ============================================================= CONCEPT FOOTER ("Got it" lives at the bottom now) */
+.concept-foot{margin-top:20px;padding-top:15px;border-top:1px solid var(--line2);display:flex;justify-content:flex-end}
+.concept-foot .got{margin:0;padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.03);font-size:13px;font-family:var(--head);font-weight:600;transition:.18s}
+.concept-foot .got:hover{border-color:var(--green);color:#fff}
+html.light .concept-foot .got:hover{color:#1d1b26}
+.concept.done .concept-foot .got{border-color:rgba(67,201,138,.5);background:rgba(67,201,138,.1);color:var(--green)}
+
+/* ============================================================= SECTION COLLAPSE MODE */
+.mh-chev{margin-left:auto;align-self:center;flex:none;color:var(--accent);font-size:17px;line-height:1;transition:transform .25s;display:none}
+body.sectioned .mh-chev{display:block}
+body.sectioned section.module.open .mh-chev{transform:rotate(90deg)}
+body.sectioned .mod-head{cursor:pointer;border-radius:10px;transition:background .15s}
+body.sectioned .mod-head:hover{background:rgba(255,255,255,.035)}
+html.light body.sectioned .mod-head:hover{background:rgba(20,18,40,.03)}
+body.sectioned section.module:not(.open) .mod-head{border-bottom-color:transparent;margin-bottom:0;padding-bottom:6px}
+body.sectioned .mod-body{display:none}
+body.sectioned section.module.open .mod-body{display:block;animation:fade .3s}
+body.sectioned section.module{margin:16px 0;scroll-margin-top:118px}
+.btn-ghost.on{color:#fff;border-color:var(--accent);background:linear-gradient(135deg,rgba(217,119,87,.25),rgba(139,124,246,.2))}
+html.light .btn-ghost.on{color:#1d1b26}
 </style>
 <script>try{if(localStorage.getItem('cca-theme')==='light')document.documentElement.classList.add('light');}catch(e){}</script>
 </head>
@@ -512,6 +597,7 @@ html.light .sim-btn.ghost{background:rgba(20,18,40,.05)}
     <button data-mode="flash">Flashcards</button>
     <button data-mode="exam">Exam Sim</button>
   </div>
+  <button class="btn-ghost" id="sectionsBtn" title="Collapse into expandable sections">🗂 Sections</button>
   <button class="btn-ghost" id="themeBtn" title="Toggle light / dark theme" aria-label="Toggle theme">🌙</button>
   <button class="btn-ghost" id="resetBtn">Reset</button>
 </div></div>
@@ -5006,6 +5092,121 @@ const FLASHCARDS = [
   document.getElementById('simClose').onclick=()=>{closeSim();toLearn();};
   document.querySelectorAll('.mode-tabs button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.mode==='exam')openSim();else simOv.classList.remove('open');}));
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&simOv.classList.contains('open')){closeSim();toLearn();}});
+})();
+</script>
+
+<!-- ============================================================ FUN TIPS -->
+<script>
+(function(){
+  // Fun, mostly study-technique tips (safe + motivating) plus a few exam nuggets
+  // that are consistent with the guide content above. One lands at the bottom of
+  // every module; tap "another" to cycle through the rest.
+  var TIPS=[
+    "<b>Spaced repetition</b> beats cramming. Revisit a module tomorrow, not just today — memory consolidates <i>between</i> sessions. 🧠",
+    "<b>Active recall</b> &gt; re-reading. Attempt the quiz <i>before</i> you peek — getting it wrong is exactly how it sticks. 🎯",
+    "Tap the <b>🏆 up top</b> to see your XP, level and badges. Yes, learning here keeps a high score. 🎮",
+    "On the move? <b>Flashcards mode</b> (top bar) turns 5 idle minutes into spaced reps — they add up fast. 🚌",
+    "Explain a concept out loud to a <b>rubber duck</b>. If you can teach the agentic loop, you own it. 🦆",
+    "The <b>“Got it” checkbox</b> drives your progress bar — tick it honestly. Future-you is watching. ✅",
+    "Stuck? <b>Skip it, finish the module, circle back.</b> Interleaving topics beats grinding one to dust. 🔀",
+    "Take the <b>Exam Sim</b> cold — no notes. The bar is 9/12 (≈ 720/1000), and a practice fail now is cheap. 📝",
+    "<b>Sleep is a study tool.</b> Memory consolidates overnight — an all-nighter trades tomorrow's recall for tonight's panic. 😴",
+    "Exam reflex: <b>only <code>transient</code> errors are retryable.</b> Validation, business and permission errors get no second chance. 🔁",
+    "Classic trap: <b>an empty result is success, not an error.</b> Zero rows ≠ failure. 🫙",
+    "When <code>Edit</code> can't find a <b>unique</b> match, fall back to <b>Read + Write</b>. Textbook scenario answer. ✏️",
+    "The whole loop in one breath: Claude <b>stops</b> and asks for a tool → <b>your code</b> runs it → you send the result back → repeat. The API is <b>stateless</b>. 🔄",
+    "Two answers look right? <b>Pick the one that does less.</b> The simplest correct action usually wins here. ✂️",
+    "Studying at night? Hit <b>🌙 in the top bar</b> for light/dark — less glare, more retention. 🌗",
+    "<b>Hydrate.</b> A dehydrated brain reads like a model running 2% slower. Grab water, then smash the next quiz. 💧"
+  ];
+  var mods=document.querySelectorAll('section.module');
+  mods.forEach(function(sec,i){
+    var ft=document.createElement('div');
+    ft.className='funtip';
+    ft.innerHTML='<span class="ft-ico" aria-hidden="true">🎲</span>'+
+      '<div class="ft-body"><span class="ft-label">Did you know?</span>'+
+      '<span class="ft-text"></span></div>'+
+      '<button class="ft-reroll" type="button">🎲 another</button>';
+    var txt=ft.querySelector('.ft-text');
+    var idx=i % TIPS.length;                 // each module starts on a different tip
+    txt.innerHTML=TIPS[idx];
+    ft.querySelector('.ft-reroll').addEventListener('click',function(){
+      idx=(idx+1)%TIPS.length;
+      txt.innerHTML=TIPS[idx];
+    });
+    sec.appendChild(ft);
+  });
+})();
+</script>
+
+<!-- ============================================================ CHECKBOX → CARD FOOTER + COLLAPSIBLE SECTIONS -->
+<script>
+(function(){
+  /* 1) Move each "Got it" control to a footer at the BOTTOM of its card, so it's
+        ticked AFTER reading the concept rather than before. The checkbox node is
+        moved (not recreated), so its state and the delegated listeners survive. */
+  document.querySelectorAll('.concept').forEach(function(card){
+    var got=card.querySelector('.concept-head > .got');
+    if(!got)return;
+    var foot=document.createElement('div');
+    foot.className='concept-foot';
+    foot.appendChild(got);
+    card.appendChild(foot);
+    // relabel to reinforce the "after completing" intent
+    for(var i=0;i<got.childNodes.length;i++){
+      var n=got.childNodes[i];
+      if(n.nodeType===3 && n.textContent.trim()){ n.textContent=' Mark as learned'; break; }
+    }
+  });
+
+  /* 2) Wrap each module's body so it can collapse. Runs after the fun-tips script,
+        so the injected tip card is wrapped in too. */
+  document.querySelectorAll('section.module').forEach(function(sec){
+    var head=sec.querySelector('.mod-head');
+    if(!head || head.parentNode!==sec)return;
+    var body=document.createElement('div');
+    body.className='mod-body';
+    var n=head.nextSibling;
+    while(n){ var next=n.nextSibling; body.appendChild(n); n=next; }
+    sec.appendChild(body);
+    var chev=document.createElement('span');
+    chev.className='mh-chev';chev.setAttribute('aria-hidden','true');chev.textContent='▸';
+    head.appendChild(chev);
+    head.addEventListener('click',function(){
+      if(document.body.classList.contains('sectioned'))sec.classList.toggle('open');
+    });
+  });
+
+  /* 3) Toggle button: collapse the one-pager into expandable sections (persisted). */
+  var SECT='cca-sectioned', sbtn=document.getElementById('sectionsBtn');
+  function openHash(){
+    var h=location.hash;
+    if(h.length>1){var t=document.getElementById(h.slice(1));if(t&&t.classList.contains('module'))t.classList.add('open');}
+  }
+  function apply(on){
+    document.body.classList.toggle('sectioned',on);
+    sbtn.classList.toggle('on',on);
+    sbtn.innerHTML=on?'📖 Expand':'🗂 Sections';
+    sbtn.title=on?'Expand everything back into one page':'Collapse into expandable sections';
+  }
+  var saved=false;try{saved=localStorage.getItem(SECT)==='1';}catch(e){}
+  apply(saved);
+  if(saved)openHash();
+  sbtn.addEventListener('click',function(){
+    var on=!document.body.classList.contains('sectioned');
+    apply(on);
+    try{localStorage.setItem(SECT,on?'1':'0');}catch(e){}
+    if(on)openHash();
+  });
+  // clicking a nav pill while collapsed opens its target section
+  document.querySelectorAll('#npin a').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(!document.body.classList.contains('sectioned'))return;
+      var id=a.getAttribute('href');
+      if(id&&id.length>1){var t=document.getElementById(id.slice(1));if(t&&t.classList.contains('module'))t.classList.add('open');}
+    });
+  });
+  window.addEventListener('hashchange',function(){if(document.body.classList.contains('sectioned'))openHash();});
 })();
 </script>
 </body>
